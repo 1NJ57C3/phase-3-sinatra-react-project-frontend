@@ -6,13 +6,11 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
-// import Avatar from '@mui/material/Avatar'; --> if we add users 
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-// import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import MoreVertIcon from '@mui/icons-material/MoreVert'; --> more button in top right-hand corner of card
+// import Avatar from '@mui/material/Avatar'; --> if we add users 
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -25,7 +23,9 @@ const ExpandMore = styled((props) => {
     }),
   }));
 
-function DrinkCard() {
+function RecipeCard({ recipes }) {
+  console.log('From RecipeCard: ', recipes)
+
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -66,4 +66,4 @@ function DrinkCard() {
   )
 }
 
-export default DrinkCard;
+export default RecipeCard;

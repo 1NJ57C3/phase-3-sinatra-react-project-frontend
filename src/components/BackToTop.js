@@ -22,7 +22,6 @@ const styles = makeStyles((theme) => ({
 
 const BackToTop = ({showBelow}) => {
     const [show, setShow] = useState(showBelow ? false : true);
-    console.log('ShowBelow:', showBelow)
 
     const classes = styles();
 
