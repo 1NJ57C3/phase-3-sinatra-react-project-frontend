@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+// import Icon from '@mui/material/Icon';
 // import Avatar from '@mui/material/Avatar'; --> if we add users 
 
 const ExpandMore = styled((props) => {
@@ -23,16 +24,25 @@ const ExpandMore = styled((props) => {
     }),
   }));
 
-function RecipeCard({ recipes }) {
-  console.log('From RecipeCard: ', recipes)
-
+function RecipeCard({ recipe }) {
   const [expanded, setExpanded] = useState(false);
+
+  const { name, image, ingredients, instructions, prep_type, is_heated, prep_time, measurements, source } = recipe;
+
+
+  const ingredsArr = ingredients.filter(i => i.is_garnish !== true).map(n => n.name)
+
+  const ingreds = ingredsArr.map(i => <span>• {i} <br/></span>)
+
+  const garnish = ingredients.filter(i => i.is_garnish == true).map(n => n.name)
+
 
   return (
       <Card sx={{ maxWidth: 345 }}>
           <CardHeader 
-            title="Drink Name"
-            subheader="Do we need this subheader?"
+            title={name}
+            subheader=""
+            // {`Prep Type: ${prep_type}`}
           />
           <CardMedia 
             component="img"
@@ -40,11 +50,25 @@ function RecipeCard({ recipes }) {
             image="https://images.unsplash.com/photo-1516486392848-8b67ef89f113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNvZmZlZXxlbnwwfHwwfHw%3D&w=1000&q=80"
             alt="coffee image"
           />
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+              Prep time: {prep_time}
+            </Typography>
+          </CardContent>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    Ingredients
-                    Instructions
+                <Typography paragraph>
+                  Ingredients 
+                  <br/>
+                  {ingreds}
+                  <br/>
+                  Garnish
+                  <br/>
+                  • {garnish}
+                </Typography>
+                <Typography paragraph>
+                  Instructions
+                  {/* {instructions} */}
                 </Typography>
             </CardContent>
           </Collapse>

@@ -16,8 +16,6 @@ function App() {
     .then((recipes) => setRecipes(recipes))
   }, [])
 
-  console.log(recipes)
-
   return (
     <div className="App">
         <HeroHeader />
