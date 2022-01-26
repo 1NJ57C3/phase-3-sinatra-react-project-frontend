@@ -18,3 +18,38 @@ code {
   margin-left: 15%;
   margin-right: auto;
 }
+
+/* hero image/header */
+/* .hero-img {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url('https://media.istockphoto.com/photos/cup-of-coffee-and-coffee-beans-picture-id1282382408?b=1&k=20&m=1282382408&s=170667a&w=0&h=cnYj-MTqsISmMw5Fx1HoOrp7hekEe6vdg8IPzTImdcs=');
+  margin-bottom: 125px;
+} */
+
+/* .overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+} */
+
+.hero-content {
+  color: white;
+  font-size: 65px;
+  letter-spacing: 0px;
+  margin: 9% 11% 5px;
+  float: left;
+}
+
+.hero-content p {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
