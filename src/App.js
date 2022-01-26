@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HeroHeader from './components/HeroHeader';
 import DrinkList from './components/DrinkList';
@@ -11,6 +10,7 @@ function App() {
 
   return (
     <div className="App">
+        <HeroHeader />
         <DrinkList />
         <RecipeForm />
         <BackToTop showBelow={250} />
