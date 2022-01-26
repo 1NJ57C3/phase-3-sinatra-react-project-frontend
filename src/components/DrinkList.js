@@ -4,7 +4,16 @@ import DrinkCard from './DrinkCard.js';
 function DrinkList() {
 
     return (
-        <DrinkCard />
+        <div className="drink-list">
+            <DrinkCard />
+            <DrinkCard />
+            <DrinkCard />
+            <DrinkCard />
+            <DrinkCard />
+            <DrinkCard />
+            <DrinkCard />
+            <DrinkCard />
+        </div>
     )
 }
 
