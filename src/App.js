@@ -6,6 +6,8 @@ import RecipeList from './components/RecipeList';
 import RecipeForm from './components/RecipeForm';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import NavBar from './components/NavBar';
+
 
 const API = 'http://localhost:9292/recipes'
 
@@ -20,12 +22,14 @@ function App() {
 
   return (
     <div className="App">
+        <NavBar />
         <HeroHeader />
         <FilterGrid />
         <RecipeList recipes={recipes} />
         <RecipeForm />
         <Footer />
         <BackToTop showBelow={250} />
+        
     </div>
   );
 }
