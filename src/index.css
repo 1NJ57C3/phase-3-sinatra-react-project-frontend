@@ -12,11 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.recipe-list {
-  margin-top: 100px;
+/* landing header */
+.hero-content {
+  color: white;
+  letter-spacing: 0px;
   margin-bottom: 100px;
-  margin-left: 15%;
-  margin-right: auto;
+  margin-top: 4%;
+}
+
+.hero-content p {
+  font-size: 15px;
+  text-align: center;
 }
 
 /* hero image/header */
@@ -30,26 +36,38 @@ code {
   margin-bottom: 125px;
 } */
 
-/* .overlay {
+.filter-overlay {
   position: relative;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.50);
   color: white;
-} */
-
-.hero-content {
-  color: white;
-  font-size: 65px;
-  letter-spacing: 0px;
-  margin: 9% 11% 5px;
-  float: left;
 }
 
-.hero-content p {
-  margin: 0;
-  font-size: 20px;
-  text-align: center;
+/* recipe list background */
+.filter-img {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-repeat: none;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url('/public/coffee.jpg');
+  margin-bottom: 100px;
+}
+
+#recipe-grid {
+  margin-left: 10%;
+  padding-top: 100px;
+}
+
+#form {
+  margin-top: 100px;
+}
+
+#footer {
+  margin-top: 200px;
+  margin-bottom: 100px;
 }
