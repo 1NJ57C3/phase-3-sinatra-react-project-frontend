@@ -62,10 +62,11 @@ code {
 
 #footer {
   margin-top: 200px;
+
 }
 
-/* hero image/header */
-/* .hero-img {
+ hero image/header 
+ .hero-img {
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -73,4 +74,17 @@ code {
   background-position: 50% 50%;
   background-image: url('https://media.istockphoto.com/photos/cup-of-coffee-and-coffee-beans-picture-id1282382408?b=1&k=20&m=1282382408&s=170667a&w=0&h=cnYj-MTqsISmMw5Fx1HoOrp7hekEe6vdg8IPzTImdcs=');
   margin-bottom: 125px;
-} */
+} 
+
+
+#footer {
+  position: bottom;
+   left: 0;
+   bottom: 0;
+   width: 120%;
+   background-color: rgb(255, 253, 253);
+   color: rgb(0, 0, 0);
+   text-align: center;
+   
+ } 
+   
