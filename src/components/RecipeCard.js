@@ -29,12 +29,18 @@ function RecipeCard({ recipe }) {
 
   const { name, image, ingredients, instructions, prep_type, is_heated, prep_time, measurements, source } = recipe;
 
+  console.log('Instructions: ', {instructions})
+  console.log('Ingredients: ', {ingredients})
 
-  const ingredsArr = ingredients.filter(i => i.is_garnish !== true).map(n => n.name)
+  const instructStr = instructions.map(i => <span>{i} </span>)
 
-  const ingreds = ingredsArr.map(i => <span>• {i} <br/></span>)
 
-  const garnish = ingredients.filter(i => i.is_garnish == true).map(n => n.name)
+  // const ingredsArr = ingredients.ingredients.filter(i => i.is_garnish !== true).map(n => n.name)
+  // console.log('ingredsArr: ', {ingredsArr})
+
+  // const ingreds = ingredsArr.map(i => <span>• {i} <br/></span>)
+
+  // const garnish = ingredients.filter(i => i.is_garnish == true).map(n => n.name)
 
 
   return (
@@ -57,18 +63,17 @@ function RecipeCard({ recipe }) {
           </CardContent>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-                <Typography paragraph>
-                  Ingredients 
+                <Typography paragraph variant="body2">
+                  <h4>Ingredients</h4>
+                  {/* {ingreds} */}
                   <br/>
-                  {ingreds}
+                  <h4>Garnish</h4>
                   <br/>
-                  Garnish
-                  <br/>
-                  • {garnish}
+                  {/* • {garnish} */}
                 </Typography>
-                <Typography paragraph>
-                  Instructions
-                  {/* {instructions} */}
+                <Typography paragraph variant="body2">
+                  <h4>Instructions</h4>
+                  {instructStr}
                 </Typography>
             </CardContent>
           </Collapse>

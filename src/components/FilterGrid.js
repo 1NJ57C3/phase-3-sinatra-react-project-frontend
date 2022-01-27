@@ -1,5 +1,4 @@
 import React from 'react';
-import RecipeCard from './RecipeCard.js';
 
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -14,31 +13,16 @@ const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#6e5a4b',
 }));
 
-function RecipeList({ recipes }) {
-    // console.log('From RecipeList: ', recipes)
-
-    const cardElements = recipes.map(r => {
-        return (
-            <Grid item>
-                <Item>
-                    <RecipeCard 
-                        key={r.id}
-                        recipe={r}
-                    />
-                </Item>
-            </Grid>
-        )
-    });
+function FilterGrid() {
 
 
     return (
-        <div className="recipe-img">
-            <div className="recipe-overlay">
-                <div id="recipe-grid">
+        <div className="filter-img">
+            <div className="filter-overlay">
+                <div id="filter-grid">
                     <FadeIn delay="1000" transitionDuration="3000">
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={5}>
-                                {cardElements}
                             </Grid>
                         </Box>
                     </FadeIn>
@@ -48,4 +32,4 @@ function RecipeList({ recipes }) {
     );
 }
 
-export default RecipeList;
+export default FilterGrid;

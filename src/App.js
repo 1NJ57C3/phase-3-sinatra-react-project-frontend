@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import HeroHeader from './components/HeroHeader';
+import FilterGrid from './components/FilterGrid';
 import RecipeList from './components/RecipeList';
 import RecipeForm from './components/RecipeForm';
+import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
 const API = 'http://localhost:9292/recipes'
@@ -19,8 +21,10 @@ function App() {
   return (
     <div className="App">
         <HeroHeader />
+        <FilterGrid />
         <RecipeList recipes={recipes} />
         <RecipeForm />
+        <Footer />
         <BackToTop showBelow={250} />
     </div>
   );
