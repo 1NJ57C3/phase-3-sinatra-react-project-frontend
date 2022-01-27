@@ -88,7 +88,7 @@ function RecipeForm({ onAddRecipe }) {
                     id='is_heated'
                     name='is_heated'
                     checked={formData.is_heated}
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e)}
                 />
                 <br/>
                 <label>Ingredients</label>
