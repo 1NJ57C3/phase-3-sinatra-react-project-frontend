@@ -52,11 +52,11 @@ code {
   padding-top: 100px;
 }
 
-#form {
+#recipe-form {
   margin-top: 100px;
 }
 
-#form label {
+#recipe-form label {
   text-align: left;
 }
 
@@ -85,6 +85,5 @@ code {
    background-color: rgb(255, 253, 253);
    color: rgb(0, 0, 0);
    text-align: center;
-   
  } 
    
