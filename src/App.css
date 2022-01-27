@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+#footer {
+ position: bottom;
+  left: 0;
+  bottom: 0;
+  width: 120%;
+  background-color: rgb(255, 253, 253);
+  color: rgb(0, 0, 0);
+  text-align: center;
+} 
+  
+  
+ 
+  
+
+
+
+
