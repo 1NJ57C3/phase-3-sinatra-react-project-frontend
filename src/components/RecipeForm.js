@@ -25,39 +25,64 @@ function RecipeForm() {
                     value={name} 
                     onChange={e => setName(e.target.value)}
                 />
+                <br/>
                 <label>Image</label>
-                <input type='text' value={image} />
-
+                <input 
+                    type='text' 
+                    value={image}
+                    onChange={e => setImage(e.target.value)} 
+                />
+                <br/>
                 <label>Prep Type</label>
-                <input type='text' value={prepType} />
-
+                <input 
+                    type='text' 
+                    value={prepType} 
+                    onChange={e => setPrepType(e.target.value)}
+                />
+                <br/>
                 <label>Prep Time</label>
-                <input type='text' value={prepTime} />
-
-                <label>Is it heated?</label>
-                <input type='radio' value={isHeated} />
-
+                <input 
+                    type='text' 
+                    value={prepTime} 
+                    onChange={e => setPrepTime(e.target.value)}
+                />
+                <br/>
+                <label htmlFor="isHeated">Heated?</label>
+                <input 
+                    type='checkbox'
+                    id='isHeated'
+                    checked={isHeated}
+                    onChange={e => setIsHeated(e.target.value)}
+                />
+                <br/>
                 <label>Ingredients</label>
-                <input type='radio' value={ingredients} />
-
+                <input 
+                    type='text' 
+                    value={ingredients} 
+                />
+                <br/>
                 <label>Measurements</label>
-                <input type='text' value={measurements} />
-
+                <input 
+                    type='text' 
+                    value={measurements} 
+                />
+                <br/>
                 <label>Instructions</label>
                 <input 
                     type='text' 
                     value={instructions}
                     onChange={e => setInstructions(e.target.value)}
                 />
-
+                <br/>
                 <label>Source</label>
                 <input 
                     type='text' 
                     value={source} 
                     onChange={e => setSource(e.target.value)}
                 />
-
+                <br/>
                 <button type='submit'>Submit</button>
+                <button type='reset'>Reset</button>
             </form>
         </div>
     )

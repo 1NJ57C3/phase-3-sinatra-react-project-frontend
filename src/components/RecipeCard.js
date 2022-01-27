@@ -27,7 +27,7 @@ const ExpandMore = styled((props) => {
 function RecipeCard({ recipe }) {
   const [expanded, setExpanded] = useState(false);
 
-  const { name, image, ingredients, instructions, prep_type, is_heated, prep_time, measurements, source } = recipe;
+  const { name, image, ingredients, instructions, prep_time, measurements } = recipe;
 
   console.log('Instructions: ', {instructions})
   console.log('Ingredients: ', {ingredients})
