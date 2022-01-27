@@ -78,14 +78,14 @@ function NavBar(){
 
   return (
         <Box sx={{ flexGrow: 1 }}>
-        <AppBar color="default" position="relative" width="30%">
+        <AppBar color="default" position="relative" >
           <Toolbar>
             <IconButton
               size="large"
               edge="start"
               color="default"
               aria-label="open drawer"
-              sx={{ mr: 8 }}
+              sx={{ mr: 2 }}
             >
              
               
