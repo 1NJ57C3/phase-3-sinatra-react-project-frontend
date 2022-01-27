@@ -23,6 +23,11 @@ function FilterGrid() {
                     <FadeIn delay="1000" transitionDuration="3000">
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={5}>
+                                <button>Test1</button>
+                                <button>Test2</button>
+                                <button>Test3</button>
+                                <button>Test4</button>
+                                <button>Test5</button>
                             </Grid>
                         </Box>
                     </FadeIn>
