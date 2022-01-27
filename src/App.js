@@ -20,13 +20,17 @@ function App() {
     .then((recipes) => setRecipes(recipes))
   }, [])
 
+  function handleAddRecipe(newRecipe) {
+    setRecipes([...recipes, setRecipes]);
+  }
+
   return (
     <div className="App">
         <NavBar />
         <HeroHeader />
         <FilterGrid />
         <RecipeList recipes={recipes} />
-        <RecipeForm />
+        <RecipeForm onAddRecipe={handleAddRecipe} />
         <Footer />
         <BackToTop showBelow={250} />
         

@@ -1,65 +1,108 @@
 import React, { useState } from 'react';
 
-function RecipeForm() {
-    const [name, setName] = useState('');
-    const [prepTime, setPrepTime] = useState(0);
-    const [isHeated, setIsHeated] = useState(false);
-    const [ingredients, setIngredients] = useState('');
-    // const [instructions, setInstructions] = useState('');
-    const [source, setSource] = useState('');
-    const [image, setImage] = useState('');
+const API = 'http://localhost:9292/recipes'
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Submitted')
+function RecipeForm({ onAddRecipe }) {
+    const [formData, setFormData] = useState({
+        name: "",
+        prep_type: "",
+        is_heated: "",
+        prep_time: "",
+        instructions: "",
+        source: "",
+        image: "",
+        ingredients: ""
+      });
+    
+      function handleChange(e) {
+
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+        const name = e.target.name
+
+        setFormData({
+          ...formData,
+          [name]: value,
+          [e.target.id]: value,
+        });
+        console.log({formData})
       }
+    
+      function handleSubmit() {
+
+        const newRecipe = {
+          ...formData,
+        };
+    
+        fetch(API, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newRecipe),
+        })
+          .then((r) => r.json())
+          .then(onAddRecipe);
+        // window.location.pathname = "/thanks";
+      } 
 
     return(
         <div id='form'>
             <form onSubmit={handleSubmit}>
                 <label>Name</label>
+                <br/>
                 <input 
                     type='text' 
-                    value={name} 
-                    onChange={e => setName(e.target.value)}
+                    name="name"
+                    value={formData.name} 
+                    onChange={handleChange}
+                    rules={[{ required: true}]}
                 />
                 <br/>
                 <label>Image</label>
+                <br/>
                 <input 
                     type='text' 
+                    name='image'
                     placeholder='Image URL...'
-                    value={image}
-                    onChange={e => setImage(e.target.value)} 
+                    value={formData.image}
+                    onChange={handleChange} 
                 />
                 <br/>
                 <label>Prep Time</label>
+                <br/>
                 <input 
                     type='text' 
+                    name='prep_time'
                     placeholder='Ex: 5 minutes'
-                    value={prepTime} 
-                    onChange={e => setPrepTime(e.target.value)}
+                    value={formData.prepTime} 
+                    onChange={handleChange}
                 />
-                <br/>
                 <label htmlFor="isHeated">Heated?</label>
+                <br/>
                 <input 
                     type='checkbox'
-                    id='isHeated'
-                    checked={isHeated}
-                    onChange={e => setIsHeated(e.target.value)}
+                    id='is_heated'
+                    name='is_heated'
+                    checked={formData.isHeated}
+                    onChange={handleChange}
                 />
                 <br/>
                 <label>Ingredients</label>
-                <input 
+                <br/>
+                <textarea 
                     type='text' 
-                    value={ingredients} 
-                    onChange={e => setIngredients(e.target.value)}
+                    name='ingredients'
+                    value={formData.ingredients} 
+                    onChange={handleChange}
                 />
                 <br/>
                 <label>Source</label>
+                <br/>
                 <input 
                     type='text' 
-                    value={source} 
-                    onChange={e => setSource(e.target.value)}
+                    name='source'
+                    value={formData.source} 
+                    onChange={handleChange}
                 />
                 <br/>
 
