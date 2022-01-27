@@ -15,14 +15,18 @@ function RecipeForm({ onAddRecipe }) {
       });
     
       function handleChange(e) {
+          console.log(e.target.checked)
+          console.log(e.target.name)
 
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         const name = e.target.name
 
+        console.log('VALUE: ', value)
+        console.log('NAME: ', name)
+
         setFormData({
           ...formData,
           [name]: value,
-          [e.target.id]: value,
         });
         console.log({formData})
       }
@@ -77,13 +81,13 @@ function RecipeForm({ onAddRecipe }) {
                     value={formData.prepTime} 
                     onChange={handleChange}
                 />
-                <label htmlFor="isHeated">Heated?</label>
+                <label htmlFor="is_heated">Heated?</label>
                 <br/>
                 <input 
                     type='checkbox'
                     id='is_heated'
                     name='is_heated'
-                    checked={formData.isHeated}
+                    checked={formData.is_heated}
                     onChange={handleChange}
                 />
                 <br/>
