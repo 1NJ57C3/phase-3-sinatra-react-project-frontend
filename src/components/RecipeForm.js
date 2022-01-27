@@ -6,112 +6,204 @@ function RecipeForm({ onAddRecipe }) {
     const [formData, setFormData] = useState({
         name: "",
         prep_type: "",
-        is_heated: "",
+        is_heated: false,
         prep_time: "",
-        instructions: "",
         source: "",
         image: "",
-        ingredients: ""
+        instructions: [],
+        ingredients: [
+            {
+                ingred_name: "",
+                is_garnish: "",
+                measurements: ""
+            }
+        ]
       });
-    
-      function handleChange(e) {
-          console.log(e.target.checked)
-          console.log(e.target.name)
 
-        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-        const name = e.target.name
+      function handleFieldChange(e) {
 
-        console.log('VALUE: ', value)
-        console.log('NAME: ', name)
+            const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+            const name = e.target.name
 
+          if (['ingred_name', 'is_garnish', 'measurements'].includes(name)) {
+              let ingredients = [...formData.ingredients];
+              ingredients[e.target.id][e.target.name] = value;
+              console.log({ingredients})
+              setFormData({ 
+                  ...formData, 
+                  ingredients, 
+                });
+          } else {
+              console.log(false)
+                setFormData({
+                    ...formData,
+                    [name]: value,
+                });
+          }
+          console.log({formData})
+      };
+
+      function handleAddIngredient(e) {
+        e.preventDefault()
+        
         setFormData({
-          ...formData,
-          [name]: value,
+            ingredients: [
+                formData.ingredients,
+                { ingred_name: '', is_garnish: '', measurements: '' }
+            ]
         });
-        console.log({formData})
-      }
-    
-      function handleSubmit() {
+      };
 
-        const newRecipe = {
-          ...formData,
-        };
     
-        fetch(API, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newRecipe),
-        })
-          .then((r) => r.json())
-          .then(onAddRecipe);
-        // window.location.pathname = "/thanks";
+    //   function handleChange(e) {
+    //     //   console.log(e.target.checked)
+    //       console.log('Inside handleChange: ', e.target.value)
+
+    //     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    //     const name = e.target.name
+
+    //     // console.log('VALUE: ', value)
+    //     // console.log('NAME: ', name)
+
+    //     setFormData({
+    //       ...formData,
+    //       [name]: value,
+    //     });
+    //     console.log('In handleChange: ', {formData})
+    //   }
+    
+      function handleSubmit(e) {
+          e.preventDefault();
+
+          let newRecipe = formData;
+
+
+        console.log('In handleSubmit: ', {formData})
+    
+        // fetch(API, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(newRecipe),
+        // })
+        //   .then((r) => r.json())
+        //   .then(onAddRecipe);
       } 
 
     return(
-        <div id='form'>
-            <form onSubmit={handleSubmit}>
+        <div id='form-container'>
+            <form id='recipe-form' onSubmit={handleSubmit}>
                 <label>Name</label>
                 <br/>
                 <input 
                     type='text' 
+                    label='Recipe Name'
+                    placeholder='Recipe Name'
                     name="name"
                     value={formData.name} 
-                    onChange={handleChange}
                     rules={[{ required: true}]}
+                    onChange={handleFieldChange}
                 />
                 <br/>
                 <label>Image</label>
                 <br/>
                 <input 
-                    type='text' 
+                    type='text'
+                    label='Image'
+                    placeholder='Image URL' 
                     name='image'
-                    placeholder='Image URL...'
                     value={formData.image}
-                    onChange={handleChange} 
+                    onChange={handleFieldChange}
                 />
+                <br/>
+                <label>Prep Type</label>
+                <br/>
+                <select name='prep_type' onChange={handleFieldChange}>
+                    <option value='coarse'>Coarse</option>
+                    <option value='medium_course'>Medium Coarse</option>
+                    <option value='medium'>Medium</option>
+                    <option value='find'>Fine</option>
+                    <option value='medium_fine'>Medium Fine</option>
+                    <option value='extra_fine'>Extra Fine</option>
+                    <option value='espresso'>Espresso</option>
+                </select>
                 <br/>
                 <label>Prep Time</label>
                 <br/>
                 <input 
-                    type='text' 
-                    name='prep_time'
+                    type='text'
+                    label='Prep Time' 
                     placeholder='Ex: 5 minutes'
-                    value={formData.prepTime} 
-                    onChange={handleChange}
-                />
-                <label htmlFor="is_heated">Heated?</label>
+                    name='prep_time'
+                    value={formData.prep_time} 
+                    onChange={handleFieldChange}
+                    />
                 <br/>
+                <label>Heated?</label>
                 <input 
                     type='checkbox'
+                    label='Heated?'
                     id='is_heated'
                     name='is_heated'
                     checked={formData.is_heated}
-                    onChange={(e) => handleChange(e)}
-                />
-                <br/>
-                <label>Ingredients</label>
-                <br/>
-                <textarea 
-                    type='text' 
-                    name='ingredients'
-                    value={formData.ingredients} 
-                    onChange={handleChange}
-                />
-                <br/>
-                <label>Source</label>
-                <br/>
-                <input 
-                    type='text' 
-                    name='source'
-                    value={formData.source} 
-                    onChange={handleChange}
+                    onChange={handleFieldChange}
                 />
                 <br/>
 
-                <button type='submit'>Submit</button>
-                <button type='reset'>Reset</button>
+
+
+                {formData.ingredients.map((ingredient, index) => {
+                    return (
+                        <div key={index}>
+                            <label>Ingredient Name</label>
+                            <input 
+                                type='text' 
+                                id={index}
+                                name='ingred_name' 
+                                value={ingredient.ingred_name} 
+                                onChange={handleFieldChange}
+                                />
+                            <br/>
+
+                            <label>Is this ingredient a garnish?</label>
+                            <input 
+                                type='checkbox' 
+                                id={index}
+                                name='is_garnish' 
+                                value={ingredient.is_garnish} 
+                                onChange={handleFieldChange}
+                                />
+                            <br/>
+                            
+                            <label>Measurement</label>
+                            <br/>
+                            <input 
+                                type='text' 
+                                id={index}
+                                name='measurements' 
+                                value={ingredient.measurements} 
+                                onChange={handleFieldChange}
+                            />
+                        </div>
+                    );
+                })}
+                <br/>
+                <button onClick={handleAddIngredient} className='add-btn'>Add Ingredient</button>
+                <br/>
+                <br/>
+
+                <input 
+                    type='text' 
+                    label='Source'
+                    name='source'
+                    value={formData.source} 
+                    onChange={handleFieldChange}
+                />
+                <br/>
+
+                <button type='submit' className='form-btn'>Submit</button>
+                <button type='reset' className='form-btn'>Reset</button>
             </form>
         </div>
     )

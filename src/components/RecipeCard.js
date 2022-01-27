@@ -29,8 +29,8 @@ function RecipeCard({ recipe }) {
 
   const { name, image, ingredients, instructions, prep_time } = recipe;
 
-  console.log('Instructions: ', {instructions})
-  console.log('Ingredients: ', {ingredients})
+  // console.log('Instructions: ', {instructions})
+  // console.log('Ingredients: ', {ingredients})
 
   const instructStr = instructions.map(i => <li>{i}</li>)
 
@@ -40,8 +40,11 @@ function RecipeCard({ recipe }) {
   // const ingreds = ingredsArr.map(i => <span>• {i} <br/></span>)
   
   const filterIngreds = ingredients.filter(i => i.is_garnish !== true)
-  const ingreds = filterIngreds.map((i, idx) => <span>• {i.measurements} {i.name} {filterIngreds.length-1 !== idx ? <br /> : null}</span>)
+
+  const ingreds = filterIngreds.map((i, idx) => <span>• {i.measurements} {i.name} {filterIngreds.length - 1 !== idx ? <br /> : null}</span>)
+
   const filterGarnish = ingredients.filter(i => i.is_garnish == true)
+
   const garnish = filterGarnish.map((n, i) => <span>{n.measurements} {n.name}</span>)
 
   return (
@@ -69,10 +72,10 @@ function RecipeCard({ recipe }) {
                   {ingreds}
                   <br/>
                   <h4>Garnish</h4>
-                  • {garnish}
-                </Typography>
-                <Typography paragraph variant="body2">
+                  {garnish}
                   <h4>Instructions</h4>
+                </Typography>
+                <Typography paragraph variant="body2" style={{textAlign: 'left'}}>
                   {instructStr}
                 </Typography>
             </CardContent>
