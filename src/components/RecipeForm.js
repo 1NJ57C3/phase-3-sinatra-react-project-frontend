@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 
 function RecipeForm() {
     const [name, setName] = useState('');
-    const [prepType, setPrepType] = useState('');
     const [prepTime, setPrepTime] = useState(0);
     const [isHeated, setIsHeated] = useState(false);
     const [ingredients, setIngredients] = useState('');
-    const [measurements, setMeasurements] = useState('');
-    const [instructions, setInstructions] = useState('');
+    // const [instructions, setInstructions] = useState('');
     const [source, setSource] = useState('');
     const [image, setImage] = useState('');
 
@@ -24,47 +22,49 @@ function RecipeForm() {
                     type='text' 
                     value={name} 
                     onChange={e => setName(e.target.value)}
-                    placeholder='Name...'
-                /><br />
-                <br />
+                />
+                <br/>
                 <label>Image</label>
-                <input type='text' value={image} placeholder='Image URL...' /><br />
-                    <br />
-                <label>Prep Type</label>
-                <input type='text' value={prepType} placeholder='Dropdown or Radios?' /><br />
-                    <br />
-                <label>Prep Time</label>
-                <input type='text' value={prepTime} placeholder='Ex: 5 minutes' /><br />
-                    <br />
-                <label>Better hot?</label>
-                <input type='radio' value={isHeated} />
-                <label>Better cold?</label>
-                <input type='radio' value={isHeated} /><br />
-                    <br />
-                <label>Ingredients</label>
-                <input type='text' value={ingredients} placeholder='Dropdown per? More button?' /><br />
-                {/* <input type='radio' value={ingredients} /><br /> */}
-                <label>Measurements</label>
-                <input type='text' value={measurements} placeholder='Group with Ingredient'/><br />
-                    <br />
-                <label>Instructions</label>
                 <input 
                     type='text' 
-                    value={instructions}
-                    placeholder='One per step? Add button?'
-                    onChange={e => setInstructions(e.target.value)}
-                /><br />
-                <br />
+                    placeholder='Image URL...'
+                    value={image}
+                    onChange={e => setImage(e.target.value)} 
+                />
+                <br/>
+                <label>Prep Time</label>
+                <input 
+                    type='text' 
+                    placeholder='Ex: 5 minutes'
+                    value={prepTime} 
+                    onChange={e => setPrepTime(e.target.value)}
+                />
+                <br/>
+                <label htmlFor="isHeated">Heated?</label>
+                <input 
+                    type='checkbox'
+                    id='isHeated'
+                    checked={isHeated}
+                    onChange={e => setIsHeated(e.target.value)}
+                />
+                <br/>
+                <label>Ingredients</label>
+                <input 
+                    type='text' 
+                    value={ingredients} 
+                    onChange={e => setIngredients(e.target.value)}
+                />
+                <br/>
                 <label>Source</label>
                 <input 
                     type='text' 
                     value={source} 
-                    placeholder="Credit where it's due..."
                     onChange={e => setSource(e.target.value)}
-                /><br />
-                <br />
+                />
+                <br/>
 
                 <button type='submit'>Submit</button>
+                <button type='reset'>Reset</button>
             </form>
         </div>
     )

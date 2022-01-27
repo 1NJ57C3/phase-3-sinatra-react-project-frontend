@@ -27,7 +27,7 @@ const ExpandMore = styled((props) => {
 function RecipeCard({ recipe }) {
   const [expanded, setExpanded] = useState(false);
 
-  const { name, image, ingredients, instructions, prep_type, is_heated, prep_time, measurements, source } = recipe;
+  const { name, image, ingredients, instructions, prep_time } = recipe;
 
   console.log('Instructions: ', {instructions})
   console.log('Ingredients: ', {ingredients})
@@ -48,7 +48,7 @@ function RecipeCard({ recipe }) {
       <Card sx={{ maxWidth: 345 }}>
           <CardHeader 
             title={name}
-            subheader={prep_type !== "espresso" ? prep_type+"-ground coffee" : prep_type}
+            // subheader={prep_type !== "espresso" ? prep_type+"-ground coffee" : prep_type}
           />
             {/* {!!is_heated ? "Hot" : "Cold"} */}
           <CardMedia 
