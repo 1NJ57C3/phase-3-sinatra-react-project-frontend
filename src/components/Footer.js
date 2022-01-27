@@ -1,7 +1,8 @@
 import React from 'react';
 
-function Footer() {
 
+function Footer() {
+            
     return (
         <div id='footer' color="default">
             Copyright © [2022] Made By Injustice, Hannah and Rebekah. All rights reserved.
@@ -9,4 +10,4 @@ function Footer() {
     )
 }
 
-export default Footer;
+export default Footer; 
