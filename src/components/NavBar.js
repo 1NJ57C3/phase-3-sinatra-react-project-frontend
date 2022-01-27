@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
   
 
   const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
+    position: 'fix',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -35,7 +35,7 @@ import MenuItem from '@mui/material/MenuItem';
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
-    display: 'flex',
+    display: 'absoulte',
     alignItems: 'center',
     justifyContent: 'center',
   }));
@@ -45,7 +45,7 @@ import MenuItem from '@mui/material/MenuItem';
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      paddingLeft: `calc(1em + ${theme.spacing(6)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('sm')]: {
@@ -78,15 +78,15 @@ function NavBar(){
 
   return (
         <Box sx={{ flexGrow: 1 }}>
-        <AppBar color="default" position="fix">
+        <AppBar color="default" position="relative" width="30%">
           <Toolbar>
             <IconButton
               size="large"
               edge="start"
               color="default"
               aria-label="open drawer"
-              sx={{ mr: 2 }}
-              >
+              sx={{ mr: 8 }}
+            >
              
               
             
@@ -124,7 +124,7 @@ function NavBar(){
               component="div"
               sx={{ flexGrow: 3, display: { xs: 'none', sm: 'block' } }}
             >
-              COFFEE
+              Coffee 
             </Typography>
             <Search>
               <SearchIconWrapper>
