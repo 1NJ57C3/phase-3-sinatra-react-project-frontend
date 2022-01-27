@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,9 +8,14 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 
-const Search = styled('div')(({ theme }) => ({
+  
+
+  const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -50,11 +55,28 @@ const Search = styled('div')(({ theme }) => ({
         },
       },
     },
+
+
+    
   }));
 
+ 
 
 function NavBar(){
-    return (
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
         <Box sx={{ flexGrow: 1 }}>
         <AppBar color="default" position="relative">
           <Toolbar>
@@ -64,16 +86,45 @@ function NavBar(){
               color="default"
               aria-label="open drawer"
               sx={{ mr: 2 }}
-            >
-              <MenuIcon />
+              >
+             
+              
+            
+              <MenuIcon OnClick={handleClick}/>
+              <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
+        Menu
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Add</MenuItem>
+        <MenuItem onClick={handleClose}>Recipe</MenuItem>
+        {/* <MenuItem onClick={handleClose}>Ingridients</MenuItem> */}
+      </Menu>
+    </div>
+              
             </IconButton>
+            
             <Typography
               variant="h6"
               noWrap
               component="div"
               sx={{ flexGrow: 3, display: { xs: 'none', sm: 'block' } }}
             >
-              Coffee
+              COFFEE
             </Typography>
             <Search>
               <SearchIconWrapper>
