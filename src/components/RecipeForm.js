@@ -28,13 +28,11 @@ function RecipeForm({ onAddRecipe }) {
           if (['ingred_name', 'is_garnish', 'measurements'].includes(name)) {
               let ingredients = [...formData.ingredients];
               ingredients[e.target.id][e.target.name] = value;
-              console.log({ingredients})
               setFormData({ 
                   ...formData, 
                   ingredients, 
                 });
           } else {
-              console.log(false)
                 setFormData({
                     ...formData,
                     [name]: value,
@@ -47,8 +45,9 @@ function RecipeForm({ onAddRecipe }) {
         e.preventDefault()
         
         setFormData({
+            ...formData,
             ingredients: [
-                formData.ingredients,
+                ...formData.ingredients,
                 { ingred_name: '', is_garnish: '', measurements: '' }
             ]
         });
