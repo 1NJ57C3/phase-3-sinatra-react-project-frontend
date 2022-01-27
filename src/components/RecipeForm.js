@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 
 function RecipeForm() {
     const [name, setName] = useState('');
-    const [prepType, setPrepType] = useState('');
     const [prepTime, setPrepTime] = useState(0);
     const [isHeated, setIsHeated] = useState(false);
     const [ingredients, setIngredients] = useState('');
-    const [measurements, setMeasurements] = useState('');
-    const [instructions, setInstructions] = useState('');
+    // const [instructions, setInstructions] = useState('');
     const [source, setSource] = useState('');
     const [image, setImage] = useState('');
 
@@ -29,20 +27,15 @@ function RecipeForm() {
                 <label>Image</label>
                 <input 
                     type='text' 
+                    placeholder='Image URL...'
                     value={image}
                     onChange={e => setImage(e.target.value)} 
-                />
-                <br/>
-                <label>Prep Type</label>
-                <input 
-                    type='text' 
-                    value={prepType} 
-                    onChange={e => setPrepType(e.target.value)}
                 />
                 <br/>
                 <label>Prep Time</label>
                 <input 
                     type='text' 
+                    placeholder='Ex: 5 minutes'
                     value={prepTime} 
                     onChange={e => setPrepTime(e.target.value)}
                 />
@@ -59,19 +52,7 @@ function RecipeForm() {
                 <input 
                     type='text' 
                     value={ingredients} 
-                />
-                <br/>
-                <label>Measurements</label>
-                <input 
-                    type='text' 
-                    value={measurements} 
-                />
-                <br/>
-                <label>Instructions</label>
-                <input 
-                    type='text' 
-                    value={instructions}
-                    onChange={e => setInstructions(e.target.value)}
+                    onChange={e => setIngredients(e.target.value)}
                 />
                 <br/>
                 <label>Source</label>
@@ -81,6 +62,7 @@ function RecipeForm() {
                     onChange={e => setSource(e.target.value)}
                 />
                 <br/>
+
                 <button type='submit'>Submit</button>
                 <button type='reset'>Reset</button>
             </form>
