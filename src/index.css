@@ -111,17 +111,6 @@ form#recipe-form > label {
   text-align: left;
 }
 
-/* hero image/header  */
-/* .hero-img {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-image: url('https://media.istockphoto.com/photos/cup-of-coffee-and-coffee-beans-picture-id1282382408?b=1&k=20&m=1282382408&s=170667a&w=0&h=cnYj-MTqsISmMw5Fx1HoOrp7hekEe6vdg8IPzTImdcs=');
-  margin-bottom: 125px;
-}  */
-
 #footer {
    margin-top: 200px;
    padding-top: 200px;
