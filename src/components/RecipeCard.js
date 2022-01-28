@@ -10,8 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import Icon from '@mui/material/Icon';
-// import Avatar from '@mui/material/Avatar'; --> if we add users 
+import Icon from '@mui/material/Icon';
+import DeleteSharpIcon from '@mui/icons-material/DeleteSharp';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -24,10 +24,10 @@ const ExpandMore = styled((props) => {
     }),
   }));
 
-function RecipeCard({ recipe }) {
+function RecipeCard({ recipe, onDeleteClick }) {
   const [expanded, setExpanded] = useState(false);
 
-  const { name, image, ingredients, instructions, prep_time } = recipe;
+  const { id, name, image, ingredients, instructions, prep_time, prep_type } = recipe;
 
   // console.log('Instructions: ', {instructions})
   // console.log('Ingredients: ', {ingredients})
@@ -47,11 +47,15 @@ function RecipeCard({ recipe }) {
 
   const garnish = filterGarnish.map((n, i) => <span>{n.measurements} {n.name}</span>)
 
+  function handleDeleteClick(e, card) {
+    onDeleteClick(card)
+  }
+
   return (
       <Card sx={{ maxWidth: 345 }}>
           <CardHeader 
             title={name}
-            // subheader={prep_type !== "espresso" ? prep_type+"-ground coffee" : prep_type}
+            subheader={prep_type !== "espresso" ? prep_type+"-ground coffee" : prep_type}
           />
             {/* {!!is_heated ? "Hot" : "Cold"} */}
           <CardMedia 
@@ -83,6 +87,13 @@ function RecipeCard({ recipe }) {
           <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
+                </IconButton>
+                <IconButton 
+                  aria-label="add to favorites" 
+                  id={id}
+                  onClick={(e) => handleDeleteClick(e, id)}
+                >
+                    <DeleteSharpIcon />
                 </IconButton>
                 <ExpandMore
                     expand={expanded}
