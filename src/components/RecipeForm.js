@@ -8,7 +8,7 @@ function RecipeForm({ onAddRecipe }) {
     const [formData, setFormData] = useState({
         name: "",
         prep_type: "",
-        is_heated: false,
+        is_heated: '',
         prep_time: "",
         source: "",
         image: "",
@@ -16,7 +16,7 @@ function RecipeForm({ onAddRecipe }) {
         ingredients: [
             {
                 ingred_name: "",
-                is_garnish: false,
+                is_garnish: '',
                 measurements: ""
             }
         ]
@@ -60,10 +60,10 @@ function RecipeForm({ onAddRecipe }) {
             ]
         });
     };
-
+    
     function handleAddInstructions(e) {
         e.preventDefault()
-        
+
         setFormData({
             ...formData,
             instructions: [
@@ -71,16 +71,13 @@ function RecipeForm({ onAddRecipe }) {
                 ""
             ]
         });
-        console.log(formData)
     };
     
     function handleSubmit(e) {
         e.preventDefault();
 
         let newRecipe = { ...formData, };
-        //   const newBeer = {
-        //     ...formData,
-        //   };
+        console.log('NewRecipt: ', newRecipe)
     
         fetch(API, {
             method: "POST",
@@ -95,7 +92,7 @@ function RecipeForm({ onAddRecipe }) {
         setFormData({
             name: "",
             prep_type: "",
-            is_heated: false,
+            is_heated: '',
             prep_time: "",
             source: "",
             image: "",
@@ -103,7 +100,7 @@ function RecipeForm({ onAddRecipe }) {
             ingredients: [
                 {
                     ingred_name: "",
-                    is_garnish: false,
+                    is_garnish: '',
                     measurements: ""
                 }
             ]

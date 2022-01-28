@@ -29,19 +29,13 @@ function RecipeCard({ recipe, onDeleteClick }) {
   const { id, name, image, ingredients, instructions, prep_time, prep_type } = recipe;
 
   const instructStr = instructions.map(i => <li>{i}</li>)
-
-  // const ingredsArr = ingredients.ingredients.filter(i => i.is_garnish !== true).map(n => n.name)
-  // console.log('ingredsArr: ', {ingredsArr})
-  
-  // const ingreds = ingredsArr.map(i => <span>• {i} <br/></span>)
-  
   const filterIngreds = ingredients.filter(i => i.is_garnish !== true)
 
   const ingreds = filterIngreds.map((i, idx) => <span>• {i.measurements} {i.name} {filterIngreds.length - 1 !== idx ? <br /> : null}</span>)
 
   const filterGarnish = ingredients.filter(i => i.is_garnish == true)
 
-  const garnish = filterGarnish.map((n, i) => <span>{n.measurements} {n.name}</span>)
+  const garnish = filterGarnish.map((n, i) => <span>{n.measurements} {n.name}<br/></span>)
 
   function handleDeleteClick(e, card) {
     onDeleteClick(card)

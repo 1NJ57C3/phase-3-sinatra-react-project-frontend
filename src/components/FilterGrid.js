@@ -32,7 +32,7 @@ function FilterGrid({ handleFilterBy }) {
         
         fetch(`http://localhost:9292/recipes/${cat}`)
         .then((r) => r.json())
-        .then(recipes => handleFilterBy(recipes))
+        .then(recipeData => handleFilterBy(recipeData))
     }
 
 
