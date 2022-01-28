@@ -47,7 +47,6 @@ function RecipeForm({ onAddRecipe }) {
                     [name]: value,
                 });
           }
-          console.log({formData})
       };
 
       function handleAddIngredient(e) {
@@ -72,7 +71,6 @@ function RecipeForm({ onAddRecipe }) {
                 ""
             ]
         });
-        console.log(formData)
       };
     
       function handleSubmit(e) {

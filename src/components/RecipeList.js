@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#6e5a4b',
 }));
 
-function RecipeList({ recipes }) {
+function RecipeList({ recipes, onDeleteClick }) {
     // console.log('From RecipeList: ', recipes)
 
     const cardElements = recipes.map(r => {
@@ -24,6 +24,7 @@ function RecipeList({ recipes }) {
                     <RecipeCard 
                         key={r.id}
                         recipe={r}
+                        onDeleteClick={onDeleteClick}
                     />
                 </Item>
             </Grid>
@@ -36,8 +37,8 @@ function RecipeList({ recipes }) {
             <div className="recipe-overlay">
                 <div id="recipe-grid">
                     <FadeIn delay="1000" transitionDuration="3000">
-                        <Box sx={{ flexGrow: 1 }}>
-                            <Grid container spacing={5}>
+                        <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+                            <Grid container spacing={4}>
                                 {cardElements}
                             </Grid>
                         </Box>

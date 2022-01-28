@@ -78,20 +78,18 @@ function NavBar(){
 
   return (
         <Box sx={{ flexGrow: 1 }}>
-        <AppBar color="default" position="relative" >
+        <AppBar color="default" position="relative" style={{backgroundColor:'#000'}}>
           <Toolbar>
             <IconButton
               size="large"
               edge="start"
-              color="default"
+              color="warning"
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
-             
-              
-            
-              <MenuIcon OnClick={handleClick}/>
-              <div>
+          
+            <MenuIcon OnClick={handleClick} style={{color:'#bbac9b'}} />
+            <div>
       <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}

@@ -13,15 +13,24 @@ const API = 'http://localhost:9292/recipes'
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [updateRecipes, setUpdateRecipes] = useState([]);
 
   useEffect(() => {
     fetch(API)
     .then((r) => r.json())
     .then((recipes) => setRecipes(recipes))
-  }, [])
+  }, [updateRecipes])
 
   function handleAddRecipe(newRecipe) {
-    setRecipes([...recipes, setRecipes]);
+    setRecipes([...recipes, newRecipe]);
+    setUpdateRecipes([updateRecipes])
+  }
+
+  function onDeleteClick(card) {
+    fetch(`http://localhost:9292/recipes/${card}`, {
+      method: 'DELETE',
+    });
+    setUpdateRecipes([updateRecipes])
   }
 
   return (
@@ -29,7 +38,10 @@ function App() {
         <NavBar />
         <HeroHeader />
         <FilterGrid />
-        <RecipeList recipes={recipes} />
+        <RecipeList 
+          recipes={recipes} 
+          onDeleteClick={onDeleteClick} 
+        />
         <RecipeForm onAddRecipe={handleAddRecipe} />
         <Footer />
         <BackToTop showBelow={250} />
