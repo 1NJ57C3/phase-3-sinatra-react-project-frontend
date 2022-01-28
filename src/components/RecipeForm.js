@@ -15,7 +15,7 @@ function RecipeForm({ onAddRecipe }) {
         ingredients: [
             {
                 ingred_name: "",
-                is_garnish: false,
+                is_garnish: 'false',
                 measurements: ""
             }
         ]
@@ -102,7 +102,7 @@ function RecipeForm({ onAddRecipe }) {
             ingredients: [
                 {
                     ingred_name: "",
-                    is_garnish: false,
+                    is_garnish: 'false',
                     measurements: ""
                 }
             ]
@@ -137,7 +137,7 @@ function RecipeForm({ onAddRecipe }) {
                 <br/>
                 <label>Prep Type</label>
                 <br/>
-                <select name='prep_type' onChange={handleFieldChange}>
+                <select name='prep_type' value={formData.prep_type} onChange={handleFieldChange}>
                     <option value='Select Option'>Select Option</option>
                     <option value='Coarse'>Coarse</option>
                     <option value='Medium Coarse'>Medium Coarse</option>
