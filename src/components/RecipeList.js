@@ -15,7 +15,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function RecipeList({ recipes, onDeleteClick }) {
-    console.log('From RecipeList: ', recipes)
 
     const cardElements = recipes.map(r => {
         return (
