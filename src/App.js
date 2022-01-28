@@ -51,7 +51,6 @@ function App() {
         <RecipeForm onAddRecipe={handleAddRecipe} />
         <Footer />
         <BackToTop showBelow={250} />
-        
     </div>
   );
 }
