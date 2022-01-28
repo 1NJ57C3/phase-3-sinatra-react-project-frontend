@@ -10,7 +10,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Icon from '@mui/material/Icon';
 import DeleteSharpIcon from '@mui/icons-material/DeleteSharp';
 
 const ExpandMore = styled((props) => {
@@ -28,9 +27,6 @@ function RecipeCard({ recipe, onDeleteClick }) {
   const [expanded, setExpanded] = useState(false);
 
   const { id, name, image, ingredients, instructions, prep_time, prep_type } = recipe;
-
-  // console.log('Instructions: ', {instructions})
-  // console.log('Ingredients: ', {ingredients})
 
   const instructStr = instructions.map(i => <li>{i}</li>)
 
