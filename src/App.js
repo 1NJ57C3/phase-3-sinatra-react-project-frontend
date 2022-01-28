@@ -21,19 +21,18 @@ function App() {
   }, [])
 
   function handleAddRecipe(newRecipe) {
-    setRecipes([...recipes, setRecipes]);
+    setRecipes([...recipes, newRecipe]);
   }
 
   return (
     <div className="App">
-        <NavBar />
-        <HeroHeader />
-        <FilterGrid />
-        <RecipeList recipes={recipes} />
-        <RecipeForm onAddRecipe={handleAddRecipe} />
-        <Footer />
-        <BackToTop showBelow={250} />
-        
+      <NavBar />
+      <HeroHeader />
+      <FilterGrid />
+      <RecipeList recipes={recipes} />
+      <RecipeForm onAddRecipe={handleAddRecipe} />
+      <Footer />
+      <BackToTop showBelow={250} />
     </div>
   );
 }

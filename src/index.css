@@ -60,6 +60,28 @@ code {
   padding-top: 100px;
 }
 
+div#form-container {
+  position: sticky;
+  background-color: #bbac9b;
+  outline: 1px solid #4d3621;
+  border: 9px solid #6e5a4b;
+  border-radius: 20px;
+  margin: auto;
+  height: 580px;
+  width: 500px;
+  padding: 5px 40px 110px 40px;
+  background-image: url('https://www.teahub.io/photos/full/9-94397_1080p-coffee-wallpaper-hd.jpg');
+  background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  box-shadow: 2px 1px 7px #4d3621 inset, 4px 4px 9px black;
+}
+
+form#recipe-form > label {
+  color: #bbac9b;
+  text-shadow: 2px 2px 4px #4d3621, 2px 2px 5px wheat;
+}
+
 #recipe-form {
   margin-top: 100px;
 }
@@ -68,12 +90,7 @@ code {
   text-align: left;
 }
 
-#footer {
-  margin-top: 200px;
-
-}
-
- hero image/header 
+hero image/header 
  .hero-img {
   height: 100vh;
   width: 100vw;
@@ -84,14 +101,13 @@ code {
   margin-bottom: 125px;
 } 
 
-
 #footer {
-  position: bottom;
-   left: 0;
-   bottom: 0;
-   width: 120%;
-   background-color: rgb(255, 253, 253);
-   color: rgb(0, 0, 0);
-   text-align: center;
- } 
+  margin-top: 200px;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  background-color: #313131;
+  color: #ffffff;
+  font-weight: 200;
+  text-align: center;
+} 
    
