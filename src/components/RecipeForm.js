@@ -19,36 +19,36 @@ function RecipeForm({ onAddRecipe }) {
                 measurements: ""
             }
         ]
-      });
+    });
 
-      function handleFieldChange(e) {
+    function handleFieldChange(e) {
 
-          const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-          const name = e.target.name
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+        const name = e.target.name
 
-          if (['ingred_name', 'is_garnish', 'measurements'].includes(name)) {
-              let ingredients = [...formData.ingredients];
-              ingredients[e.target.id][e.target.name] = value;
-              setFormData({ 
-                  ...formData, 
-                  ingredients, 
-              });
-          } else if (name === 'instructions') {
-              let instructions = [...formData.instructions];
-              instructions[e.target.id] = value;
-              setFormData({ 
-                  ...formData, 
-                  instructions, 
-              });
-          } else {
-                setFormData({
-                    ...formData,
-                    [name]: value,
-                });
-          }
-      };
+        if (['ingred_name', 'is_garnish', 'measurements'].includes(name)) {
+            let ingredients = [...formData.ingredients];
+            ingredients[e.target.id][e.target.name] = value;
+            setFormData({ 
+                ...formData, 
+                ingredients, 
+            });
+        } else if (name === 'instructions') {
+            let instructions = [...formData.instructions];
+            instructions[e.target.id] = value;
+            setFormData({ 
+                ...formData, 
+                instructions, 
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
+    };
 
-      function handleAddIngredient(e) {
+    function handleAddIngredient(e) {
         e.preventDefault()
         
         setFormData({
@@ -58,9 +58,9 @@ function RecipeForm({ onAddRecipe }) {
                 { ingred_name: '', is_garnish: '', measurements: '' }
             ]
         });
-      };
+    };
 
-      function handleAddInstructions(e) {
+    function handleAddInstructions(e) {
         e.preventDefault()
         
         setFormData({
@@ -71,29 +71,29 @@ function RecipeForm({ onAddRecipe }) {
             ]
         });
         console.log(formData)
-      };
+    };
     
-      function handleSubmit(e) {
-          e.preventDefault();
+    function handleSubmit(e) {
+        e.preventDefault();
 
-          let newRecipe = { ...formData, };
+        let newRecipe = { ...formData, };
         //   const newBeer = {
         //     ...formData,
         //   };
     
         fetch(API, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newRecipe),
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newRecipe),
         })
-          .then((r) => r.json())
-          .then(onAddRecipe);
+        .then((r) => r.json())
+        .then(onAddRecipe);
 
-          setFormData({
+        setFormData({
             name: "",
-            prep_type: "Select Option",
+            prep_type: "",
             is_heated: false,
             prep_time: "",
             source: "",
@@ -137,14 +137,14 @@ function RecipeForm({ onAddRecipe }) {
                 <br/>
                 <label>Prep Type</label>
                 <br/>
-                <select name='prep_type' value={formData.prep_type} onChange={handleFieldChange}>
-                    <option value='Select Option'>Select Option</option>
-                    <option value='Coarse'>Coarse</option>
-                    <option value='Medium Coarse'>Medium Coarse</option>
-                    <option value='Medium'>Medium</option>
-                    <option value='Find'>Fine</option>
-                    <option value='Medium Fine'>Medium Fine</option>
-                    <option value='Extra Fine'>Extra Fine</option>
+                <select name='prep_type' onChange={handleFieldChange} value={formData.prep_type}>
+                    <option value='none'>Select Option</option>
+                    <option value='coarse'>Coarse</option>
+                    <option value='medium coarse'>Medium Coarse</option>
+                    <option value='medium'>Medium</option>
+                    <option value='medium fine'>Medium Fine</option>
+                    <option value='fine'>Fine</option>
+                    <option value='extra eine'>Extra Fine</option>
                     <option value='espresso'>Espresso</option>
                 </select>
                 <br/>
@@ -189,7 +189,7 @@ function RecipeForm({ onAddRecipe }) {
                                 type='checkbox' 
                                 id={index}
                                 name='is_garnish' 
-                                value={ingredient.is_garnish} 
+                                value={formData.ingredients.is_garnish} 
                                 onChange={handleFieldChange}
                             />
                             <br/>
