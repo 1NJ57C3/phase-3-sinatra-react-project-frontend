@@ -52,14 +52,14 @@ h1 {
 
 /* filter grid background */
 .filter-img {
-  height: 100vh;
+  height: 65vh;
   width: 100vw;
   position: relative;
   background-repeat: none;
   background-size: cover;
   background-position: center;
   background-image: url('/public/coffee.jpg');
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 #filter-grid {
@@ -68,7 +68,8 @@ h1 {
   margin-left: 10%;
   margin-right: 2%;
   margin-top: 40px;
-  padding-top: 15%;
+  padding-top: 5%;
+  padding-right: 2%;
 }
 
 #filter-icon, img {

@@ -4,16 +4,15 @@ import FadeIn from 'react-fade-in';
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import RecipeList from './RecipeList';
 
 const itemData = [
     {
-      img: '/1.png',
-      title: 'espresso',
+      img: '/2.png',
+      title: 'all',
     },
     {
-      img: '/2.png',
-      title: 'iced',
+      img: '/1.png',
+      title: 'espresso',
     },
     {
       img: '/3.png',
@@ -21,7 +20,7 @@ const itemData = [
     },
     {
       img: '/4.png',
-      title: 'coffee',
+      title: 'iced',
     }
 ]
 
@@ -29,10 +28,7 @@ function FilterGrid({ handleFilterBy }) {
 
     function handleClick(e, item) {
         const cat = item.title
-        
-        fetch(`http://localhost:9292/recipes/${cat}`)
-        .then((r) => r.json())
-        .then(recipeData => handleFilterBy(recipeData))
+        handleFilterBy(cat)
     }
 
 
@@ -43,10 +39,12 @@ function FilterGrid({ handleFilterBy }) {
                     <FadeIn delay="1000" transitionDuration="3000">
                     <ImageList 
                         sx={{ width: 1500, height: 450 }} 
+                        padding={8}
                         cols={4} 
                         rowHeight={164}
                     >
                         {itemData.map((item) => (
+                            <a href='#recipe-list'>
                             <ImageListItem 
                                 key={item.img} 
                                 onClick={(e) => handleClick(e, item)}
@@ -58,10 +56,9 @@ function FilterGrid({ handleFilterBy }) {
                                 loading="lazy"
                             />
                             </ImageListItem>
+                            </a>
                         ))}
                         </ImageList>
-                    );
-
                     </FadeIn>
                 </div>
             </div>
