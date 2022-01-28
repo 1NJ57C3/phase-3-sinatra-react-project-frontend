@@ -33,14 +33,15 @@ function RecipeForm({ onAddRecipe }) {
               setFormData({ 
                   ...formData, 
                   ingredients, 
-                });
-          } else if (name === 'instructions') {
-            let instructions = [value]
-            setFormData({ 
-                ...formData, 
-                instructions, 
               });
-        } else {
+          } else if (name === 'instructions') {
+              let instructions = [...formData.instructions];
+              instructions[e.target.id] = value;
+              setFormData({ 
+                  ...formData, 
+                  instructions, 
+              });
+          } else {
                 setFormData({
                     ...formData,
                     [name]: value,
@@ -63,40 +64,48 @@ function RecipeForm({ onAddRecipe }) {
 
       function handleAddInstructions(e) {
         e.preventDefault()
-
-        console.log("EVENT: ", e.target.value)
-
-        let newStep = e.target.value;
-        console.log('NEWSTEP: ', newStep)
-
-        setSteps([...steps, newStep])
-        console.log('Steps: ', steps)
         
         setFormData({
             ...formData,
             instructions: [
-                ...formData.instructions
+                ...formData.instructions,
+                ""
             ]
         });
+        console.log(formData)
       };
     
       function handleSubmit(e) {
           e.preventDefault();
 
           let newRecipe = formData;
-
-
-        console.log('In handleSubmit: ', {formData})
     
-        // fetch(API, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(newRecipe),
-        // })
-        //   .then((r) => r.json())
-        //   .then(onAddRecipe);
+        fetch(API, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newRecipe),
+        })
+          .then((r) => r.json())
+          .then(onAddRecipe);
+
+          setFormData({
+            name: "",
+            prep_type: "",
+            is_heated: false,
+            prep_time: "",
+            source: "",
+            image: "",
+            instructions: [''],
+            ingredients: [
+                {
+                    ingred_name: "",
+                    is_garnish: "",
+                    measurements: ""
+                }
+            ]
+          });
       } 
 
     return(
@@ -128,12 +137,12 @@ function RecipeForm({ onAddRecipe }) {
                 <label>Prep Type</label>
                 <br/>
                 <select name='prep_type' onChange={handleFieldChange}>
-                    <option value='coarse'>Coarse</option>
-                    <option value='medium_course'>Medium Coarse</option>
-                    <option value='medium'>Medium</option>
-                    <option value='find'>Fine</option>
-                    <option value='medium_fine'>Medium Fine</option>
-                    <option value='extra_fine'>Extra Fine</option>
+                    <option value='Coarse'>Coarse</option>
+                    <option value='Medium Coarse'>Medium Coarse</option>
+                    <option value='Medium'>Medium</option>
+                    <option value='Find'>Fine</option>
+                    <option value='Medium Fine'>Medium Fine</option>
+                    <option value='Extra Fine'>Extra Fine</option>
                     <option value='espresso'>Espresso</option>
                 </select>
                 <br/>
@@ -146,7 +155,7 @@ function RecipeForm({ onAddRecipe }) {
                     name='prep_time'
                     value={formData.prep_time} 
                     onChange={handleFieldChange}
-                    />
+                />
                 <br/>
                 <label>Heated?</label>
                 <input 
@@ -158,8 +167,6 @@ function RecipeForm({ onAddRecipe }) {
                     onChange={handleFieldChange}
                 />
                 <br/>
-
-
 
                 {formData.ingredients.map((ingredient, index) => {
                     return (
@@ -208,6 +215,7 @@ function RecipeForm({ onAddRecipe }) {
                             <br/>
                             <input 
                                 type='text' 
+                                id={index}
                                 name='instructions' 
                                 value={instruction} 
                                 onChange={handleFieldChange}
