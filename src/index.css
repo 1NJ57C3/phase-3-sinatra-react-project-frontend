@@ -65,16 +65,10 @@ h1 {
 #filter-grid {
   clear: both;
   position: relative;
-  margin-left: 2%;
+  margin-left: 9%;
   margin-right: 2%;
   margin-top: 50px;
   padding-top: 15%;
-}
-
-#filter-icons {
-  display: inline;
-  width: 5%;
-  padding-top: 90px;
 }
 
 #filter-icon, img {
