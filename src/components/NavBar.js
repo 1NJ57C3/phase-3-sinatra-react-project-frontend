@@ -134,12 +134,6 @@ function NavBar(){
         </AppBar>
       </Box>
     );
-
-    
-
-
-
 }
-
 
 export default NavBar;
