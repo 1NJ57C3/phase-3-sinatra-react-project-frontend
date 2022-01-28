@@ -15,7 +15,7 @@ function RecipeForm({ onAddRecipe }) {
         ingredients: [
             {
                 ingred_name: "",
-                is_garnish: false,
+                is_garnish: 'false',
                 measurements: ""
             }
         ]
@@ -102,7 +102,7 @@ function RecipeForm({ onAddRecipe }) {
             ingredients: [
                 {
                     ingred_name: "",
-                    is_garnish: false,
+                    is_garnish: 'false',
                     measurements: ""
                 }
             ]

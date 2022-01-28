@@ -24,8 +24,7 @@ function App() {
 
   function handleAddRecipe(newRecipe) {
     setRecipes([...recipes, newRecipe]);
-    // ! why won't new card render before re-load ???
-    setUpdateRecipes([...updateRecipes])
+    setUpdateRecipes(updateRecipes)
   }
 
   function onDeleteClick(card) {
