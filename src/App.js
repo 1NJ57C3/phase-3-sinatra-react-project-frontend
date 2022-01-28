@@ -23,6 +23,7 @@ function App() {
   }, [updateRecipes])
 
   function handleAddRecipe(newRecipe) {
+    console.log(newRecipe)
     setRecipes([...recipes, newRecipe]);
     setUpdateRecipes(updateRecipes)
   }

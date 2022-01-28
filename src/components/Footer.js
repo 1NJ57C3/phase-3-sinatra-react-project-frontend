@@ -5,7 +5,7 @@ function Footer() {
             
     return (
         <div id='footer' color="default">
-            Copyright © 2022 Made By Injustice, Hannah, and Rebekah. 
+            Copyright © 2022 Made By Injustice and Hannah.
             <br/>
             <br/>
             All rights reserved.

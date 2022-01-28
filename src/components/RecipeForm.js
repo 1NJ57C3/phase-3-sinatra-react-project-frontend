@@ -1,4 +1,5 @@
 import { IntegrationInstructions } from '@mui/icons-material';
+import { findAllByDisplayValue } from '@testing-library/react';
 import React, { useState } from 'react';
 
 const API = 'http://localhost:9292/recipes'
@@ -15,7 +16,7 @@ function RecipeForm({ onAddRecipe }) {
         ingredients: [
             {
                 ingred_name: "",
-                is_garnish: 'false',
+                is_garnish: false,
                 measurements: ""
             }
         ]
@@ -102,7 +103,7 @@ function RecipeForm({ onAddRecipe }) {
             ingredients: [
                 {
                     ingred_name: "",
-                    is_garnish: 'false',
+                    is_garnish: false,
                     measurements: ""
                 }
             ]
@@ -120,7 +121,6 @@ function RecipeForm({ onAddRecipe }) {
                     placeholder='Recipe Name'
                     name="name"
                     value={formData.name} 
-                    rules={[{ required: true }]}
                     onChange={handleFieldChange}
                 />
                 <br/>
@@ -156,7 +156,6 @@ function RecipeForm({ onAddRecipe }) {
                     placeholder='Ex: 5 minutes'
                     name='prep_time'
                     value={formData.prep_time} 
-                    rules={[{ required: true }]}
                     onChange={handleFieldChange}
                 />
                 <br/>
@@ -189,7 +188,7 @@ function RecipeForm({ onAddRecipe }) {
                                 type='checkbox' 
                                 id={index}
                                 name='is_garnish' 
-                                value={formData.ingredients.is_garnish} 
+                                checked={ingredient.is_garnish} 
                                 onChange={handleFieldChange}
                             />
                             <br/>
