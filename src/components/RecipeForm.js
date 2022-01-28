@@ -1,8 +1,10 @@
+import { IntegrationInstructions } from '@mui/icons-material';
 import React, { useState } from 'react';
 
 const API = 'http://localhost:9292/recipes'
 
 function RecipeForm({ onAddRecipe }) {
+    const [steps, setSteps] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         prep_type: "",
@@ -10,7 +12,7 @@ function RecipeForm({ onAddRecipe }) {
         prep_time: "",
         source: "",
         image: "",
-        instructions: [],
+        instructions: [''],
         ingredients: [
             {
                 ingred_name: "",
@@ -22,8 +24,8 @@ function RecipeForm({ onAddRecipe }) {
 
       function handleFieldChange(e) {
 
-            const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-            const name = e.target.name
+          const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+          const name = e.target.name
 
           if (['ingred_name', 'is_garnish', 'measurements'].includes(name)) {
               let ingredients = [...formData.ingredients];
@@ -32,7 +34,13 @@ function RecipeForm({ onAddRecipe }) {
                   ...formData, 
                   ingredients, 
                 });
-          } else {
+          } else if (name === 'instructions') {
+            let instructions = [value]
+            setFormData({ 
+                ...formData, 
+                instructions, 
+              });
+        } else {
                 setFormData({
                     ...formData,
                     [name]: value,
@@ -53,23 +61,24 @@ function RecipeForm({ onAddRecipe }) {
         });
       };
 
-    
-    //   function handleChange(e) {
-    //     //   console.log(e.target.checked)
-    //       console.log('Inside handleChange: ', e.target.value)
+      function handleAddInstructions(e) {
+        e.preventDefault()
 
-    //     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    //     const name = e.target.name
+        console.log("EVENT: ", e.target.value)
 
-    //     // console.log('VALUE: ', value)
-    //     // console.log('NAME: ', name)
+        let newStep = e.target.value;
+        console.log('NEWSTEP: ', newStep)
 
-    //     setFormData({
-    //       ...formData,
-    //       [name]: value,
-    //     });
-    //     console.log('In handleChange: ', {formData})
-    //   }
+        setSteps([...steps, newStep])
+        console.log('Steps: ', steps)
+        
+        setFormData({
+            ...formData,
+            instructions: [
+                ...formData.instructions
+            ]
+        });
+      };
     
       function handleSubmit(e) {
           e.preventDefault();
@@ -162,7 +171,7 @@ function RecipeForm({ onAddRecipe }) {
                                 name='ingred_name' 
                                 value={ingredient.ingred_name} 
                                 onChange={handleFieldChange}
-                                />
+                            />
                             <br/>
 
                             <label>Is this ingredient a garnish?</label>
@@ -172,7 +181,7 @@ function RecipeForm({ onAddRecipe }) {
                                 name='is_garnish' 
                                 value={ingredient.is_garnish} 
                                 onChange={handleFieldChange}
-                                />
+                            />
                             <br/>
                             
                             <label>Measurement</label>
@@ -192,6 +201,25 @@ function RecipeForm({ onAddRecipe }) {
                 <br/>
                 <br/>
 
+                {formData.instructions.map((instruction, index) => {
+                    return (
+                        <div key={index}>
+                            <label>Instructions by Step</label>
+                            <br/>
+                            <input 
+                                type='text' 
+                                name='instructions' 
+                                value={instruction} 
+                                onChange={handleFieldChange}
+                            />
+                        </div>
+                    )
+                })}
+                <button onClick={handleAddInstructions} className='add-btn'>Add Instruction Step</button>
+                <br/>
+
+                <label>Source</label>
+                <br/>
                 <input 
                     type='text' 
                     label='Source'
