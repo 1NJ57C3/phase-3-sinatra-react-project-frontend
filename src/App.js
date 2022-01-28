@@ -16,6 +16,7 @@ function App() {
   const [updateRecipes, setUpdateRecipes] = useState([]);
   const [filtered, setFiltered] = useState([]);
 
+
   useEffect(() => {
     fetch(API)
     .then((r) => r.json())
@@ -35,7 +36,6 @@ function App() {
   }
 
   function handleFilterBy(cat) {
-    console.log(cat)
 
     const filterRec = recipes.filter(r => {
         if (cat == 'espresso') {
@@ -52,7 +52,6 @@ function App() {
     }
 
    const toDisplay = filtered.length < 1 ? recipes : filtered
-   console.log(toDisplay)
 
   return (
     <div className="App">
