@@ -77,7 +77,6 @@ function RecipeForm({ onAddRecipe }) {
         e.preventDefault();
 
         let newRecipe = { ...formData, };
-        console.log('NewRecipt: ', newRecipe)
     
         fetch(API, {
             method: "POST",

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import HeroHeader from './components/HeroHeader';
+import Header from './components/Header';
 import FilterGrid from './components/FilterGrid';
 import RecipeList from './components/RecipeList';
 import RecipeForm from './components/RecipeForm';
@@ -13,8 +13,8 @@ const API = 'http://localhost:9292/recipes'
 
 function App() {
   const [recipes, setRecipes] = useState([]);
-  const [filtered, setFiltered] = useState([]);
   const [updateRecipes, setUpdateRecipes] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     fetch(API)
@@ -23,7 +23,6 @@ function App() {
   }, [updateRecipes])
 
   function handleAddRecipe(newRecipe) {
-    console.log(newRecipe)
     setRecipes([...recipes, newRecipe]);
     setUpdateRecipes(updateRecipes)
   }
@@ -35,17 +34,33 @@ function App() {
     setUpdateRecipes(!updateRecipes)
   }
 
-  function handleFilterBy(recipeData) {
-    console.log(recipeData)
-  }
+  function handleFilterBy(cat) {
+    console.log(cat)
+
+    const filterRec = recipes.filter(r => {
+        if (cat == 'espresso') {
+          return r.prep_type === cat
+        } else if (cat == 'iced') {
+          return r.is_heated === false
+        } else if (cat == 'hot') {
+          return r.is_heated === true
+        } else {
+          return recipes
+        } 
+      })
+    setFiltered([...filterRec])
+    }
+
+   const toDisplay = filtered.length < 1 ? recipes : filtered
+   console.log(toDisplay)
 
   return (
     <div className="App">
         <NavBar />
-        <HeroHeader />
+        <Header />
         <FilterGrid handleFilterBy={handleFilterBy} />
         <RecipeList 
-          recipes={recipes} 
+          recipes={toDisplay} 
           onDeleteClick={onDeleteClick} 
         />
         <RecipeForm onAddRecipe={handleAddRecipe} />

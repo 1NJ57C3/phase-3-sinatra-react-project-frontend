@@ -2,7 +2,7 @@ import React from 'react';
 
 import FadeIn from 'react-fade-in';
 
-function HeroHeader() {
+function Header() {
 
     return (
         <div className='hero-content'>
@@ -19,4 +19,4 @@ function HeroHeader() {
     )
 }
 
-export default HeroHeader;
+export default Header;
