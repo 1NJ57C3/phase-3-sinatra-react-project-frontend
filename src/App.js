@@ -55,16 +55,16 @@ function App() {
 
   return (
     <div className="App">
-        <NavBar />
-        <Header />
-        <FilterGrid handleFilterBy={handleFilterBy} />
-        <RecipeList 
-          recipes={toDisplay} 
-          onDeleteClick={onDeleteClick} 
-        />
-        <RecipeForm onAddRecipe={handleAddRecipe} />
-        <Footer />
-        <BackToTop showBelow={250} />
+      <NavBar />
+      <HeroHeader />
+      <FilterGrid handleFilterBy={handleFilterBy} />
+      <RecipeList 
+        recipes={recipes} 
+        onDeleteClick={onDeleteClick} 
+      />
+      <RecipeForm onAddRecipe={handleAddRecipe} />
+      <Footer />
+      <BackToTop showBelow={250} />
     </div>
   );
 }

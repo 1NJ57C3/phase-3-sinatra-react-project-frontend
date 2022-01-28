@@ -107,136 +107,144 @@ function RecipeForm({ onAddRecipe }) {
         } 
 
     return(
-        <div id='form-container'>
+        <div className='form-container' id='form-container'>
             <form id='recipe-form' onSubmit={handleSubmit}>
-                <label>Name</label>
-                <br/>
-                <input 
-                    type='text' 
-                    label='Recipe Name'
-                    placeholder='Recipe Name'
-                    name="name"
-                    value={formData.name} 
-                    onChange={handleFieldChange}
-                />
-                <br/>
-                <label>Image</label>
-                <br/>
-                <input 
-                    type='text'
-                    label='Image'
-                    placeholder='Image URL' 
-                    name='image'
-                    value={formData.image}
-                    onChange={handleFieldChange}
-                />
-                <br/>
-                <label>Prep Type</label>
-                <br/>
-                <select name='prep_type' onChange={handleFieldChange} value={formData.prep_type}>
-                    <option value='none'>Select Option</option>
-                    <option value='coarse'>Coarse</option>
-                    <option value='medium coarse'>Medium Coarse</option>
-                    <option value='medium'>Medium</option>
-                    <option value='medium fine'>Medium Fine</option>
-                    <option value='fine'>Fine</option>
-                    <option value='extra eine'>Extra Fine</option>
-                    <option value='espresso'>Espresso</option>
-                </select>
-                <br/>
-                <label>Prep Time</label>
-                <br/>
-                <input 
-                    type='text'
-                    label='Prep Time' 
-                    placeholder='Ex: 5 minutes'
-                    name='prep_time'
-                    value={formData.prep_time} 
-                    onChange={handleFieldChange}
-                />
-                <br/>
-                <label>Heated?</label>
-                <input 
-                    type='checkbox'
-                    label='Heated?'
-                    id='is_heated'
-                    name='is_heated'
-                    checked={formData.is_heated}
-                    onChange={handleFieldChange}
-                />
-                <br/>
+                <div className='form-transparent-box'>
+                    <label>Name</label>
+                    <br/>
+                    <input 
+                        type='text' 
+                        label='Recipe Name'
+                        placeholder='Recipe Name'
+                        name="name"
+                        value={formData.name} 
+                        onChange={handleFieldChange}
+                    />
+                    <br/>
+                    <label>Image</label>
+                    <br/>
+                    <input 
+                        type='text'
+                        label='Image'
+                        placeholder='Image URL' 
+                        name='image'
+                        value={formData.image}
+                        onChange={handleFieldChange}
+                    />
+                    <br/>
+                    <label>Prep Type</label>
+                    <br/>
+                    <select name='prep_type' onChange={handleFieldChange} value={formData.prep_type}>
+                        <option value='none'>Select Option</option>
+                        <option value='coarse'>Coarse</option>
+                        <option value='medium coarse'>Medium Coarse</option>
+                        <option value='medium'>Medium</option>
+                        <option value='medium fine'>Medium Fine</option>
+                        <option value='fine'>Fine</option>
+                        <option value='extra eine'>Extra Fine</option>
+                        <option value='espresso'>Espresso</option>
+                    </select>
+                    <br/>
+                    <label>Prep Time</label>
+                    <br/>
+                    <input 
+                        type='text'
+                        label='Prep Time' 
+                        placeholder='Ex: 5 minutes'
+                        name='prep_time'
+                        value={formData.prep_time} 
+                        onChange={handleFieldChange}
+                    />
+                    <br/>
+                    <label>Heated?</label>
+                    <label className='checkbox'>
+                        <input 
+                            type='checkbox'
+                            label='Heated?'
+                            id='is_heated'
+                            name='is_heated'
+                            checked={formData.is_heated}
+                            onChange={handleFieldChange}
+                        />
+                        <span className='checkmark'></span>
+                    </label>
+                    <br/>
 
-                {formData.ingredients.map((ingredient, index) => {
-                    return (
-                        <div key={index}>
-                            <label>Ingredient Name</label>
-                            <input 
-                                type='text' 
-                                id={index}
-                                name='ingred_name' 
-                                value={ingredient.ingred_name} 
-                                onChange={handleFieldChange}
-                            />
-                            <br/>
+                    {formData.ingredients.map((ingredient, index) => {
+                        return (
+                            <div key={index}>
+                                <label>Ingredient Name</label>
+                                <input 
+                                    type='text' 
+                                    id={index}
+                                    name='ingred_name' 
+                                    value={ingredient.ingred_name} 
+                                    onChange={handleFieldChange}
+                                />
+                                <br/>
 
-                            <label>Is this ingredient a garnish?</label>
-                            <input 
-                                type='checkbox' 
-                                id={index}
-                                name='is_garnish' 
-                                checked={ingredient.is_garnish} 
-                                onChange={handleFieldChange}
-                            />
-                            <br/>
-                            
-                            <label>Measurement</label>
-                            <br/>
-                            <input 
-                                type='text' 
-                                id={index}
-                                name='measurements' 
-                                value={ingredient.measurements} 
-                                onChange={handleFieldChange}
-                            />
-                        </div>
-                    );
-                })}
-                <br/>
-                <button onClick={handleAddIngredient} className='add-btn'>Add Ingredient</button>
-                <br/>
-                <br/>
+                                <label>Is this ingredient a garnish?</label>
+                                <label className='checkbox'>
+                                    <input 
+                                        type='checkbox' 
+                                        id={index}
+                                        name='is_garnish' 
+                                        checked={ingredient.is_garnish} 
+                                        onChange={handleFieldChange}
+                                    />
+                                    <span className='checkmark'></span>
+                                </label>
+                                <br/>
+                                
+                                <label>Measurement</label>
+                                <br/>
+                                <input 
+                                    type='text' 
+                                    id={index}
+                                    name='measurements' 
+                                    value={ingredient.measurements} 
+                                    onChange={handleFieldChange}
+                                />
+                            </div>
+                        );
+                    })}
+                    <br/>
+                    <button onClick={handleAddIngredient} className='add-btn'>Add Ingredient</button>
+                    <br/>
+                    <br/>
 
-                {formData.instructions.map((instruction, index) => {
-                    return (
-                        <div key={index}>
-                            <label>Instructions by Step</label>
-                            <br/>
-                            <input 
-                                type='text' 
-                                id={index}
-                                name='instructions' 
-                                value={instruction} 
-                                onChange={handleFieldChange}
-                            />
-                        </div>
-                    )
-                })}
-                <button onClick={handleAddInstructions} className='add-btn'>Add Instruction Step</button>
-                <br/>
+                    {formData.instructions.map((instruction, index) => {
+                        return (
+                            <div key={index}>
+                                <label>Instructions by Step</label>
+                                <br/>
+                                <input 
+                                    type='text' 
+                                    id={index}
+                                    name='instructions' 
+                                    value={instruction} 
+                                    onChange={handleFieldChange}
+                                />
+                            </div>
+                        )
+                    })}
+                    <button onClick={handleAddInstructions} className='add-btn'>Add Instruction Step</button>
+                    <br/>
 
-                <label>Source</label>
-                <br/>
-                <input 
-                    type='text' 
-                    label='Source'
-                    name='source'
-                    value={formData.source} 
-                    onChange={handleFieldChange}
-                />
-                <br/>
+                    <label>Source</label>
+                    <br/>
+                    <input 
+                        type='text' 
+                        label='Source'
+                        name='source'
+                        value={formData.source} 
+                        onChange={handleFieldChange}
+                    />
+                    <br/>
 
-                <button type='submit' className='form-btn'>Submit</button>
-                <button type='reset' className='form-btn'>Reset</button>
+                    <button type='submit' className='form-btn'>Submit</button>
+                    <button type='reset' className='form-btn'>Reset</button>
+                </div>
             </form>
         </div>
     )

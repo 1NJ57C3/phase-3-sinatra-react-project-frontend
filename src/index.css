@@ -83,16 +83,21 @@ h1 {
   margin-bottom: 250px;
 }
 
-div#form-container {
+div.form-container {
   position: sticky;
   background-color: #bbac9b;
   outline: 1px solid #4d3621;
   border: 9px solid #6e5a4b;
   border-radius: 20px;
-  margin: auto;
-  height: 580px;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
   width: 500px;
-  padding: 5px 40px 110px 40px;
+  padding-top: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 110px;
   background-image: url('https://www.teahub.io/photos/full/9-94397_1080p-coffee-wallpaper-hd.jpg');
   background-position: center;
   background-size: auto 100%;
@@ -100,25 +105,106 @@ div#form-container {
   box-shadow: 2px 1px 7px #4d3621 inset, 4px 4px 9px black;
 }
 
-form#recipe-form > label {
-  color: #bbac9b;
-  text-shadow: 2px 2px 4px #4d3621, 2px 2px 5px wheat;
+div.form-transparent-box {
+  position: inherit;
+  background-position: center;
+  background-color: rgba(180, 168, 152, 0.45);
+  box-shadow: 0px 0px 25px 25px rgba(187, 172, 155, 0.45);
+  border-radius: 15px;
+  margin: auto;
+  height: 100%;
+  width: 90%;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
 #recipe-form {
-  margin-top: 100px;
+  margin-top: 65px;
 }
 
 #recipe-form label {
   text-align: left;
+  color: #242424;
+  text-shadow: 0px 0px 2px #4d3621;
 }
 
+#recipe-form input, select, button {
+  color: rgba(187, 172, 155, 0.9);
+  opacity: 0.94;
+  background-color: #393939;
+  border-radius: 7px;
+}
+
+/* .checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */
+
+/* .checkbox input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+} */
+
+/* .checkmark {
+  position: absolute;
+  margin-top: 29%;
+  height: 15px;
+  width: 15px;
+  background-color: #313131;
+  border-radius: 3px;
+} */
+
+/* On mouse-over, add a grey background color */
+/* .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+} */
+
+/* When the checkbox is checked, add a blue background */
+/* .checkmark input:checked ~ .checkmark {
+  background-color: #2196F3;
+} */
+
+/* Create the checkmark/indicator (hidden when not checked) */
+/* .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+} */
+
+/* Show the checkmark when checked */
+/* .checkmark input:checked ~ .checkmark:after {
+  display: block;
+} */
+
+/* Style the checkmark/indicator */
+/* .checkmark .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} */
+
 #footer {
-   margin-top: 200px;
-   padding-top: 200px;
-   padding-bottom: 100px;
-   background-color: rgb(31, 31, 31);
-   color: white;
-   font-weight: 200;
-   text-align: center;
- }
+  margin-top: 200px;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  font-weight: 200;
+  text-align: center;
+}
