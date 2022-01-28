@@ -1,19 +1,39 @@
 import React from 'react';
 
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import FadeIn from 'react-fade-in';
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  color: theme.palette.text.secondary,
-  backgroundColor: '#6e5a4b',
-}));
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import RecipeList from './RecipeList';
 
-function FilterGrid() {
+const itemData = [
+    {
+      img: '/1.png',
+      title: 'espresso',
+    },
+    {
+      img: '/2.png',
+      title: 'iced',
+    },
+    {
+      img: '/3.png',
+      title: 'hot',
+    },
+    {
+      img: '/4.png',
+      title: 'coffee',
+    }
+]
+
+function FilterGrid({ handleFilterBy }) {
+
+    function handleClick(e, item) {
+        const cat = item.title
+        
+        fetch(`http://localhost:9292/recipes/${cat}`)
+        .then((r) => r.json())
+        .then(recipes => handleFilterBy(recipes))
+    }
 
 
     return (
@@ -21,15 +41,27 @@ function FilterGrid() {
             <div className="filter-overlay">
                 <div id="filter-grid">
                     <FadeIn delay="1000" transitionDuration="3000">
-                        <Box sx={{ flexGrow: 1 }}>
-                            <Grid container spacing={5}>
-                                <button>Test1</button>
-                                <button>Test2</button>
-                                <button>Test3</button>
-                                <button>Test4</button>
-                                <button>Test5</button>
-                            </Grid>
-                        </Box>
+                    <ImageList 
+                        sx={{ width: 1500, height: 450 }} 
+                        cols={4} 
+                        rowHeight={164}
+                    >
+                        {itemData.map((item) => (
+                            <ImageListItem 
+                                key={item.img} 
+                                onClick={(e) => handleClick(e, item)}
+                            >
+                            <img
+                                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                alt={item.title}
+                                loading="lazy"
+                            />
+                            </ImageListItem>
+                        ))}
+                        </ImageList>
+                    );
+
                     </FadeIn>
                 </div>
             </div>
