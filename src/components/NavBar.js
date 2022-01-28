@@ -70,16 +70,19 @@ function NavBar(){
   return (
     <Box sx={{ flexGrow: 1 }}>
         
-      <AppBar color="default" position="relative">
+      <AppBar color="default" position="relative" style={{ backgroundColor:'#000' }}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="default"
+            color="warning"
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon onClick={handleClick}/>
+            <MenuIcon 
+              style={{ color:'#bbac9b' }} 
+              onClick={handleClick}
+            />
             <div>
               <Button
                 id="basic-button"
@@ -103,13 +106,14 @@ function NavBar(){
               </Menu>
             </div>      
           </IconButton>
+
+          {/* space holder to push search to right side of screen */}
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 3, display: { xs: 'none', sm: 'block' } }}
           >
-            Coffee 
           </Typography>
           <Search>
             <SearchIconWrapper>
