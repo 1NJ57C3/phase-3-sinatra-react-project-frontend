@@ -94,7 +94,6 @@ function RecipeCard({ recipe, onDeleteClick }) {
                     <ExpandMoreIcon />
                 </ExpandMore>
           </CardActions>
-
       </Card>
   )
 }
