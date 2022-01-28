@@ -20,6 +20,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+h1 {
+  font-size: xxx-large;
+  font-weight: 300;
+  color: #bbac9b;
+}
+
 /* landing header */
 .hero-content {
   color: white;
@@ -30,6 +36,7 @@ code {
 
 .hero-content p {
   font-size: 15px;
+  font-weight: 150;
   text-align: center;
 }
 
@@ -39,25 +46,45 @@ code {
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.50);
+  background: rgba(0, 0, 0, 0.70);
   color: white;
 }
 
-/* recipe list background */
+/* filter grid background */
 .filter-img {
   height: 100vh;
   width: 100vw;
   position: relative;
   background-repeat: none;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: center;
   background-image: url('/public/coffee.jpg');
   margin-bottom: 100px;
 }
 
+#filter-grid {
+  clear: both;
+  position: relative;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 50px;
+  padding-top: 15%;
+}
+
+#filter-icons {
+  display: inline;
+  width: 5%;
+  padding-top: 90px;
+}
+
+#filter-icon, img {
+  margin-right: 10px;
+}
+
 #recipe-grid {
-  margin: 0 auto;
-  padding-top: 100px;
+  margin-left: 8%;
+  margin-right: 7%;
+  padding-top: 65px;
 }
 
 #recipe-form {
@@ -66,11 +93,6 @@ code {
 
 #recipe-form label {
   text-align: left;
-}
-
-#footer {
-  margin-top: 200px;
-
 }
 
  /* hero image/header  */
@@ -84,14 +106,13 @@ code {
   margin-bottom: 125px;
 }  */
 
-
 #footer {
-  position: bottom;
-   left: 0;
-   bottom: 0;
-   width: 120%;
-   background-color: rgb(255, 253, 253);
-   color: rgb(0, 0, 0);
+   margin-top: 200px;
+   padding-top: 200px;
+   padding-bottom: 100px;
+   background-color: rgb(31, 31, 31);
+   color: white;
+   font-weight: 200;
    text-align: center;
  } 
    

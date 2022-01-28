@@ -9,7 +9,7 @@ import FadeIn from 'react-fade-in';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0.8),
   color: theme.palette.text.secondary,
   backgroundColor: '#6e5a4b',
 }));
@@ -35,10 +35,11 @@ function RecipeList({ recipes, onDeleteClick }) {
     return (
         <div className="recipe-img">
             <div className="recipe-overlay">
+                    <h1 className='ease-in'>Coffee Recipes</h1>
                 <div id="recipe-grid">
                     <FadeIn delay="1000" transitionDuration="3000">
-                        <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Grid container spacing={4}>
+                        <Box sx={{ }}>
+                            <Grid container spacing={5}>
                                 {cardElements}
                             </Grid>
                         </Box>
