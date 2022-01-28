@@ -35,8 +35,8 @@ function App() {
     setUpdateRecipes(!updateRecipes)
   }
 
-  function handleFilterBy(recipes) {
-    console.log(recipes)
+  function handleFilterBy(recipeData) {
+    console.log(recipeData)
   }
 
   return (
