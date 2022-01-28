@@ -4,6 +4,7 @@ import FadeIn from 'react-fade-in';
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import RecipeList from './RecipeList';
 
 const itemData = [
     {
@@ -24,14 +25,14 @@ const itemData = [
     }
 ]
 
-function FilterGrid() {
+function FilterGrid({ handleFilterBy }) {
 
     function handleClick(e, item) {
         const cat = item.title
-        console.log(cat)
-        fetch(`http://localhost:9292/recipes/${title}`)
+        
+        fetch(`http://localhost:9292/recipes/${cat}`)
         .then((r) => r.json())
-        .then((recipes) => setRecipes(recipes))
+        .then(recipes => handleFilterBy(recipes))
     }
 
 

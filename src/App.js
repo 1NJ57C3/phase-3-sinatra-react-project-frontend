@@ -35,11 +35,15 @@ function App() {
     setUpdateRecipes(!updateRecipes)
   }
 
+  function handleFilterBy(recipes) {
+    console.log(recipes)
+  }
+
   return (
     <div className="App">
         <NavBar />
         <HeroHeader />
-        <FilterGrid />
+        <FilterGrid handleFilterBy={handleFilterBy} />
         <RecipeList 
           recipes={recipes} 
           onDeleteClick={onDeleteClick} 
