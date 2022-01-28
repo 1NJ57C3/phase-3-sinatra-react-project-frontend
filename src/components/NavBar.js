@@ -84,15 +84,6 @@ function NavBar(){
               onClick={handleClick}
             />
             <div>
-              <Button
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-              >
-                Menu
-              </Button>
               <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
