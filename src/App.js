@@ -13,7 +13,7 @@ const API = 'http://localhost:9292/recipes'
 
 function App() {
   const [recipes, setRecipes] = useState([]);
-  const [updateRecipes, setUpdateRecipes] = useState([]);
+  const [updateRecipes, setUpdateRecipes] = useState(false);
 
   useEffect(() => {
     fetch(API)
@@ -22,15 +22,16 @@ function App() {
   }, [updateRecipes])
 
   function handleAddRecipe(newRecipe) {
-    setRecipes([...recipes, newRecipe]);
-    setUpdateRecipes([updateRecipes])
+    setRecipes({...recipes, newRecipe});
+    // ! why won't new card render before re-load ???
+    setUpdateRecipes(!updateRecipes)
   }
 
   function onDeleteClick(card) {
     fetch(`http://localhost:9292/recipes/${card}`, {
       method: 'DELETE',
     });
-    setUpdateRecipes([updateRecipes])
+    setUpdateRecipes(!updateRecipes)
   }
 
   return (

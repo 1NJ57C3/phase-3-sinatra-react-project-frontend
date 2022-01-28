@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 const API = 'http://localhost:9292/recipes'
 
 function RecipeForm({ onAddRecipe }) {
-    const [steps, setSteps] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         prep_type: "",
@@ -16,7 +15,7 @@ function RecipeForm({ onAddRecipe }) {
         ingredients: [
             {
                 ingred_name: "",
-                is_garnish: "",
+                is_garnish: false,
                 measurements: ""
             }
         ]
@@ -71,12 +70,16 @@ function RecipeForm({ onAddRecipe }) {
                 ""
             ]
         });
+        console.log(formData)
       };
     
       function handleSubmit(e) {
           e.preventDefault();
 
-          let newRecipe = formData;
+          let newRecipe = { ...formData, };
+        //   const newBeer = {
+        //     ...formData,
+        //   };
     
         fetch(API, {
           method: "POST",
@@ -90,7 +93,7 @@ function RecipeForm({ onAddRecipe }) {
 
           setFormData({
             name: "",
-            prep_type: "",
+            prep_type: "Select Option",
             is_heated: false,
             prep_time: "",
             source: "",
@@ -99,12 +102,12 @@ function RecipeForm({ onAddRecipe }) {
             ingredients: [
                 {
                     ingred_name: "",
-                    is_garnish: "",
+                    is_garnish: false,
                     measurements: ""
                 }
             ]
           });
-      } 
+        } 
 
     return(
         <div id='form-container'>
@@ -117,7 +120,7 @@ function RecipeForm({ onAddRecipe }) {
                     placeholder='Recipe Name'
                     name="name"
                     value={formData.name} 
-                    rules={[{ required: true}]}
+                    rules={[{ required: true }]}
                     onChange={handleFieldChange}
                 />
                 <br/>
@@ -135,6 +138,7 @@ function RecipeForm({ onAddRecipe }) {
                 <label>Prep Type</label>
                 <br/>
                 <select name='prep_type' onChange={handleFieldChange}>
+                    <option value='Select Option'>Select Option</option>
                     <option value='Coarse'>Coarse</option>
                     <option value='Medium Coarse'>Medium Coarse</option>
                     <option value='Medium'>Medium</option>
@@ -152,6 +156,7 @@ function RecipeForm({ onAddRecipe }) {
                     placeholder='Ex: 5 minutes'
                     name='prep_time'
                     value={formData.prep_time} 
+                    rules={[{ required: true }]}
                     onChange={handleFieldChange}
                 />
                 <br/>
