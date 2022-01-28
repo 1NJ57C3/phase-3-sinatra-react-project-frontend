@@ -35,33 +35,18 @@ function RecipeForm({ onAddRecipe }) {
                   ingredients, 
               });
           } else if (name === 'instructions') {
-              let instructions = [...formData.instructions];useState({
-                name: "",
-                prep_type: "",
-                is_heated: false,
-                prep_time: "",
-                source: "",
-                image: "",
-                instructions: [''],
-                ingredients: [
-                    {
-                        ingred_name: "",
-                        is_garnish: "",
-                        measurements: ""
-                    }
-                ]
-              });
+              let instructions = [...formData.instructions];
               instructions[e.target.id] = value;
               setFormData({ 
                   ...formData, 
                   instructions, 
               });
           } else {
-              setFormData({
-                  ...formData,
-                  [name]: value,
-              });
-        }
+                setFormData({
+                    ...formData,
+                    [name]: value,
+                });
+          }
           console.log({formData})
       };
 
