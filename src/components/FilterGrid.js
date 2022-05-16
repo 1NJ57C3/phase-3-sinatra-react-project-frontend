@@ -33,15 +33,13 @@ function FilterGrid({ handleFilterBy }) {
 
 
     return (
-        <div className="filter-img">
+        <div className="filter-background">
             <div className="filter-overlay">
                 <div id="filter-grid">
                     <FadeIn delay="1000" transitionDuration="3000">
-                    <ImageList 
-                        sx={{ width: 1500, height: 450 }} 
+                    <ImageList
                         padding={8}
-                        cols={4} 
-                        rowHeight={164}
+                        cols={4}
                     >
                         {itemData.map((item) => (
                             <a href='#recipe-list'>
@@ -50,6 +48,7 @@ function FilterGrid({ handleFilterBy }) {
                                 onClick={(e) => handleClick(e, item)}
                             >
                             <img
+                                className='filter-icon'
                                 src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
                                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                                 alt={item.title}
