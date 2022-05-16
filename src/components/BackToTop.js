@@ -8,15 +8,15 @@ const styles = makeStyles((theme) => ({
     toTop: {
         zIndex: 2,
         position: 'fixed',
-        bottom: '2vh',
+        bottom: '6vh',
+        right: '7vh',
         backgroundColor: '#bbac9b',
         color: '#292929',
         "&:hover, .Mui-focusVisible": {
             transition: '0.3s',
-            color: '#fff',
-            backgroundColor: '#81614b'
+            backgroundColor: '#81614b',
+            color: '#fff'
         },
-        right: '5%',
     }
 }));
 
