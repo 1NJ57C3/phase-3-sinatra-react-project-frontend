@@ -32,20 +32,22 @@ function RecipeList({ recipes, onDeleteClick }) {
 
 
     return (
-        <div id='recipe-list'>
-            <div className="recipe-img">
-                <div className="recipe-overlay">
-                        <h1 className='ease-in'>Coffee Recipes</h1>
-                    <div id="recipe-grid">
-                        <FadeIn delay="1000" transitionDuration="3000">
-                            <Box sx={{ }}>
-                                <Grid container spacing={5}>
-                                    {cardElements}
-                                </Grid>
-                            </Box>
-                        </FadeIn>
-                    </div>
-                </div>
+        <div>
+            <h1>Coffee Recipes</h1>
+            <div id="recipe-grid">
+                <FadeIn 
+                    delay="1000" 
+                    transitionDuration="3000"
+                >
+                    <Box sx={{ }}>
+                        <Grid 
+                            container 
+                            spacing={7}
+                        >
+                            {cardElements}
+                        </Grid>
+                    </Box>
+                </FadeIn>
             </div>
         </div>
     );

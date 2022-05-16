@@ -21,21 +21,26 @@ code {
 }
 
 h1 {
-  font-size: xxx-large;
+  margin: 0;
+  padding: 65px 0 65px 0;
+  word-spacing: 12px;
+  letter-spacing: 5px;
+  background-color: #1f1f1f;
+  font-size: 60px;
   font-weight: 300;
   color: #bbac9b;
 }
 
-/* * LANDING HEADER */
+/* * HEADER HERO */
 
-.hero-content {
+.hero-container {
   color: white;
   letter-spacing: 0px;
   margin-bottom: 100px;
   margin-top: 4%;
 }
 
-.hero-content p {
+.hero-container p {
   font-size: 15px;
   font-weight: 150;
   text-align: center;
@@ -43,25 +48,20 @@ h1 {
 
 /* * FILTER SECTION */
 
-.filter-overlay {
-  position: relative;
+.filter-background {
   height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.70);
-  color: white;
-}
-
-.filter-background {
-  height: 65vh;
-  width: 100vw;
-  position: relative;
   background-repeat: none;
   background-size: cover;
   background-position: center;
   background-image: url('/public/coffee.jpg');
-  margin-bottom: 50px;
+}
+
+.filter-overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #000000b3;
 }
 
 #filter-grid {
@@ -69,19 +69,22 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 150px;
+  position: relative;
+  padding: 100px;
 }
 
 .filter-icon {
   margin-right: 140px;
 }
 
+/* * RECIPE SECTION */
+
 #recipe-grid {
-  margin-left: 8%;
-  margin-right: 7%;
+  margin: 0 7% 250px 8%;
   padding-top: 65px;
-  margin-bottom: 250px;
 }
+
+/* * FORM */
 
 div.form-container {
   position: sticky;
@@ -108,8 +111,8 @@ div.form-container {
 div.form-transparent-box {
   position: inherit;
   background-position: center;
-  background-color: rgba(180, 168, 152, 0.45);
-  box-shadow: 0px 0px 25px 25px rgba(187, 172, 155, 0.45);
+  background-color: #b4a89873;
+  box-shadow: 0px 0px 25px 25px #bbac9b73;
   border-radius: 15px;
   margin: auto;
   height: 100%;
@@ -129,7 +132,7 @@ div.form-transparent-box {
 }
 
 #recipe-form input, select, button {
-  color: rgba(187, 172, 155, 0.9);
+  color: #bbac9be6;
   opacity: 0.94;
   background-color: #393939;
   border-radius: 7px;
@@ -203,7 +206,7 @@ div.form-transparent-box {
   margin-top: 200px;
   padding-top: 200px;
   padding-bottom: 100px;
-  background-color: rgb(31, 31, 31);
+  background-color: #000;
   color: white;
   font-weight: 200;
   text-align: center;
