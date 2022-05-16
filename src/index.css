@@ -53,7 +53,7 @@ h1 {
   width: 100%;
   background-repeat: none;
   background-size: cover;
-  background-position: center;
+  background-position: 50% 60%;
   background-image: url('/public/coffee.jpg');
 }
 
