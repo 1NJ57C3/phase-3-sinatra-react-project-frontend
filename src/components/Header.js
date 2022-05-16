@@ -5,7 +5,7 @@ import FadeIn from 'react-fade-in';
 function Header() {
 
     return (
-        <div className='hero-content'>
+        <div className='hero-container'>
             <FadeIn delay="1000" transitionDuration="2000">
                 <img src='/cmLogo2.png'/>
             </FadeIn>

@@ -49,8 +49,8 @@ function RecipeCard({ recipe, onDeleteClick }) {
           />
             {/* {!!is_heated ? "Hot" : "Cold"} */}
           <CardMedia 
+            height={450}
             component="img"
-            height="194"
             image={!!image ? image : "https://images.unsplash.com/photo-1516486392848-8b67ef89f113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGNvZmZlZXxlbnwwfHwwfHw%3D&w=1000&q=80"}
             alt="coffee image"
           />
