@@ -56,10 +56,10 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <HeroHeader />
+      <Header />
       <FilterGrid handleFilterBy={handleFilterBy} />
       <RecipeList 
-        recipes={recipes} 
+        recipes={toDisplay} 
         onDeleteClick={onDeleteClick} 
       />
       <RecipeForm onAddRecipe={handleAddRecipe} />

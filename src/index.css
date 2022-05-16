@@ -26,7 +26,8 @@ h1 {
   color: #bbac9b;
 }
 
-/* landing header */
+/* * LANDING HEADER */
+
 .hero-content {
   color: white;
   letter-spacing: 0px;
@@ -40,6 +41,8 @@ h1 {
   text-align: center;
 }
 
+/* * FILTER SECTION */
+
 .filter-overlay {
   position: relative;
   height: 100%;
@@ -50,8 +53,7 @@ h1 {
   color: white;
 }
 
-/* filter grid background */
-.filter-img {
+.filter-background {
   height: 65vh;
   width: 100vw;
   position: relative;
@@ -64,16 +66,14 @@ h1 {
 
 #filter-grid {
   clear: both;
-  position: relative;
-  margin-left: 10%;
-  margin-right: 2%;
-  margin-top: 40px;
-  padding-top: 5.5%;
-  padding-right: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
 }
 
-#filter-icon, img {
-  margin-right: 10px;
+.filter-icon {
+  margin-right: 140px;
 }
 
 #recipe-grid {
