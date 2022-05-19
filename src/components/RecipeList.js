@@ -18,10 +18,9 @@ function RecipeList({ recipes, onDeleteClick }) {
 
     const cardElements = recipes.map(r => {
         return (
-            <Grid item>
+            <Grid item key={r.id}>
                 <Item>
                     <RecipeCard 
-                        key={r.id}
                         recipe={r}
                         onDeleteClick={onDeleteClick}
                     />

@@ -5,6 +5,8 @@ import FadeIn from 'react-fade-in';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
+import SearchBar from './SearchBar';
+
 const itemData = [
     {
       img: '/2.png',
@@ -24,7 +26,7 @@ const itemData = [
     }
 ]
 
-function FilterGrid({ handleFilterBy }) {
+function FilterGrid({ handleFilterBy, search, setSearch }) {
 
     function handleClick(e, item) {
         const cat = item.title
@@ -42,9 +44,9 @@ function FilterGrid({ handleFilterBy }) {
                         cols={4}
                     >
                         {itemData.map((item) => (
-                            <a href='#recipe-list'>
+                            <a href='#recipe-list' 
+                            key={item.img} >
                             <ImageListItem 
-                                key={item.img} 
                                 onClick={(e) => handleClick(e, item)}
                             >
                             <img
@@ -57,8 +59,11 @@ function FilterGrid({ handleFilterBy }) {
                             </ImageListItem>
                             </a>
                         ))}
-                        </ImageList>
+                    </ImageList>
                     </FadeIn>
+                </div>
+                <div style={{margin: 'auto', width: '40%'}}>
+                    <SearchBar search={search} setSearch={setSearch} />
                 </div>
             </div>
         </div>
