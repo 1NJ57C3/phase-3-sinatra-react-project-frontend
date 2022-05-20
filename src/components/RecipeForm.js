@@ -1,5 +1,5 @@
-import { IntegrationInstructions } from '@mui/icons-material';
-import { findAllByDisplayValue } from '@testing-library/react';
+// import { IntegrationInstructions } from '@mui/icons-material';
+// import { findAllByDisplayValue } from '@testing-library/react';
 import React, { useState } from 'react';
 
 const API = 'http://localhost:9292/recipes'
@@ -174,6 +174,7 @@ function RecipeForm({ onAddRecipe }) {
                         return (
                             <div key={index}>
                                 <label>Ingredient Name</label>
+                                <br/>
                                 <input 
                                     type='text' 
                                     id={index}
