@@ -37,34 +37,34 @@ function FilterGrid({ handleFilterBy, search, setSearch }) {
     return (
         <div className="filter-background">
             <div className="filter-overlay">
-                <div id="filter-grid">
-                    <FadeIn delay="1000" transitionDuration="3000">
-                    <ImageList
-                        padding={8}
-                        cols={4}
-                    >
-                        {itemData.map((item) => (
-                            <a href='#recipe-list' 
-                            key={item.img} >
-                            <ImageListItem 
-                                onClick={(e) => handleClick(e, item)}
-                            >
-                            <img
-                                className='filter-icon'
-                                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                alt={item.title}
-                                loading="lazy"
-                            />
-                            </ImageListItem>
-                            </a>
-                        ))}
-                    </ImageList>
-                    </FadeIn>
-                </div>
-                <div style={{margin: 'auto', width: '40%'}}>
-                    <SearchBar search={search} setSearch={setSearch} />
-                </div>
+                <FadeIn delay="1000" transitionDuration="3000">
+                    <div id="filter-grid">
+                        <ImageList
+                            padding={8}
+                            cols={4}
+                        >
+                            {itemData.map((item) => (
+                                <a href='#recipe-list' 
+                                key={item.img} >
+                                <ImageListItem 
+                                    onClick={(e) => handleClick(e, item)}
+                                >
+                                <img
+                                    className='filter-icon'
+                                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={item.title}
+                                    loading="lazy"
+                                />
+                                </ImageListItem>
+                                </a>
+                            ))}
+                        </ImageList>
+                    </div>
+                    <div id="filter-grid-search" style={{margin: 'auto', width: '40%'}}>
+                        <SearchBar search={search} setSearch={setSearch} />
+                    </div>
+                </FadeIn>
             </div>
         </div>
     );

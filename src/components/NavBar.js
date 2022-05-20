@@ -75,28 +75,25 @@ function NavBar({ search, setSearch }) {
       <AppBar position="static" style={{ backgroundColor:'#000000', color:'#bbac9b' }}>
         <Toolbar>
           <IconButton
+            onClick={handleNavMenu} 
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon 
-              onClick={handleNavMenu} 
-            />
-            <div>
-              <Menu
-                id="basic-menu"
-                anchorEl={navAnchorEl}
-                open={open(navAnchorEl)}
-                onClose={handleClose}
-                MenuListProps={{'aria-labelledby': 'basic-button'}}
-              >
-                <MenuItem onClick={handleClose}>Add</MenuItem>
-                <MenuItem onClick={handleClose}>Recipe</MenuItem>
-              </Menu>
-            </div>
+            <MenuIcon />
           </IconButton>
+          <Menu
+            id="basic-menu"
+            anchorEl={navAnchorEl}
+            open={open(navAnchorEl)}
+            onClose={handleClose}
+            onClick={handleClose}
+            MenuListProps={{'aria-labelledby': 'basic-button'}}
+          >
+            <MenuItem>Coming Soon™</MenuItem>
+          </Menu>
           <Typography
             variant="h6"
             component="div"
